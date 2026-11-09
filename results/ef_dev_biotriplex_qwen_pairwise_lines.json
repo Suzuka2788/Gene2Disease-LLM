@@ -1,0 +1,34 @@
+{
+  "backend_attempts": 4591,
+  "backend_seconds": 3383.7923863988835,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biotriplex",
+  "dispositions": {
+    "edge": 1450,
+    "failed": 237,
+    "negative_only": 24,
+    "no_assertion": 1093,
+    "not_assessed_no_cooccurrence": 10439,
+    "omitted_by_model": 49
+  },
+  "failed_calls": 0,
+  "form": "pairwise",
+  "level": "block",
+  "logical_requests": 4591,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "ef_dev_biotriplex_qwen_pairwise_lines.toml",
+    "config_sha256": "07c9a458ec67badf2ed59ec383137a6688d31b8a2a0f640aae5bcced001b57dd",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "qwen3.5-9b",
+  "papers": 70,
+  "prompt_characters": 14427660,
+  "rejected_assertions": 597,
+  "response_characters": 367851,
+  "run_id": "ef_dev_biotriplex_qwen_pairwise_lines",
+  "truncated_calls": 0
+}

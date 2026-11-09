@@ -1,0 +1,24 @@
+# Smoke test of judge -> compare against the real server: 2 BioTriplex train papers.
+[run]
+stage = "compare"
+output = "results/compare_smoke_biotriplex_qwen_pairwise_vs_chunked.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[stats]
+n_resamples = 1000
+seed = 20261107
+level = 0.95
+
+[compare]
+first = "smoke_biotriplex_qwen_pairwise"
+second = "smoke_biotriplex_qwen_chunked"
+view = "main"
+delta = 0.05
+max_papers = 2
+report_precision = false
+load_bands = [1, 4, 15, 40]

@@ -1,0 +1,33 @@
+{
+  "backend_attempts": 1293,
+  "backend_seconds": 2602.476409200346,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biored",
+  "dispositions": {
+    "edge": 849,
+    "failed": 1,
+    "negative_only": 9,
+    "no_assertion": 350,
+    "not_assessed_no_cooccurrence": 18
+  },
+  "failed_calls": 0,
+  "form": "pairwise",
+  "level": "block",
+  "logical_requests": 1293,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "ef_dev_biored_gemma_pairwise.toml",
+    "config_sha256": "57c96088d3d9513768c7a23461edb9f0bbb97e41891c1e372a86cb907bbdf535",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "gemma-4-12b",
+  "papers": 100,
+  "prompt_characters": 4102490,
+  "rejected_assertions": 1,
+  "response_characters": 296845,
+  "run_id": "ef_dev_biored_gemma_pairwise",
+  "truncated_calls": 0
+}

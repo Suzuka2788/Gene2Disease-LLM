@@ -1,0 +1,259 @@
+{
+  "all_pairs": 13292,
+  "annotated_links": 785,
+  "annotated_pairs": 354,
+  "biored_development": {
+    "annotated_pairs": 1338,
+    "levels": {
+      "adjacent": {
+        "cooccurrence_annotated_match_rate": 0.4310571240971766,
+        "counts": {
+          "fn": 25,
+          "fp": 1733,
+          "tp": 1313
+        },
+        "pair_coverage": {
+          "high": 0.9919858416148809,
+          "low": 0.9673659186002282,
+          "n_resamples": 10000,
+          "n_undefined": 0,
+          "n_units": 500,
+          "point": 0.9813153961136024
+        }
+      },
+      "block": {
+        "cooccurrence_annotated_match_rate": 0.2537454959226247,
+        "counts": {
+          "fn": 0,
+          "fp": 3935,
+          "tp": 1338
+        },
+        "pair_coverage": {
+          "high": 1.0,
+          "low": 1.0,
+          "n_resamples": 10000,
+          "n_undefined": 0,
+          "n_units": 500,
+          "point": 1.0
+        }
+      },
+      "document": {
+        "cooccurrence_annotated_match_rate": 0.2519299566936547,
+        "counts": {
+          "fn": 0,
+          "fp": 3973,
+          "tp": 1338
+        },
+        "pair_coverage": {
+          "high": 1.0,
+          "low": 1.0,
+          "n_resamples": 10000,
+          "n_undefined": 0,
+          "n_units": 500,
+          "point": 1.0
+        }
+      },
+      "section": {
+        "cooccurrence_annotated_match_rate": 0.2519299566936547,
+        "counts": {
+          "fn": 0,
+          "fp": 3973,
+          "tp": 1338
+        },
+        "pair_coverage": {
+          "high": 1.0,
+          "low": 1.0,
+          "n_resamples": 10000,
+          "n_undefined": 0,
+          "n_units": 500,
+          "point": 1.0
+        }
+      },
+      "sentence": {
+        "cooccurrence_annotated_match_rate": 0.6495680345572354,
+        "counts": {
+          "fn": 135,
+          "fp": 649,
+          "tp": 1203
+        },
+        "pair_coverage": {
+          "high": 0.9362923963543353,
+          "low": 0.8488190421799787,
+          "n_resamples": 10000,
+          "n_undefined": 0,
+          "n_units": 500,
+          "point": 0.899103139013453
+        }
+      }
+    },
+    "papers": 500
+  },
+  "levels": {
+    "adjacent": {
+      "anchored_link_coverage": 1.0,
+      "cooccurrence_annotated_match_rate": 0.20738137082601055,
+      "counts": {
+        "fn": 0,
+        "fp": 1353,
+        "tp": 354
+      },
+      "link_coverage_by_location": {
+        "background": [
+          319,
+          319
+        ],
+        "result": [
+          466,
+          466
+        ]
+      },
+      "pair_coverage": {
+        "high": 1.0,
+        "low": 1.0,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 70,
+        "point": 1.0
+      }
+    },
+    "block": {
+      "anchored_link_coverage": 1.0,
+      "cooccurrence_annotated_match_rate": 0.12407991587802314,
+      "counts": {
+        "fn": 0,
+        "fp": 2499,
+        "tp": 354
+      },
+      "link_coverage_by_location": {
+        "background": [
+          319,
+          319
+        ],
+        "result": [
+          466,
+          466
+        ]
+      },
+      "pair_coverage": {
+        "high": 1.0,
+        "low": 1.0,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 70,
+        "point": 1.0
+      }
+    },
+    "document": {
+      "anchored_link_coverage": 1.0,
+      "cooccurrence_annotated_match_rate": 0.026632560938910622,
+      "counts": {
+        "fn": 0,
+        "fp": 12938,
+        "tp": 354
+      },
+      "link_coverage_by_location": {
+        "background": [
+          319,
+          319
+        ],
+        "result": [
+          466,
+          466
+        ]
+      },
+      "pair_coverage": {
+        "high": 1.0,
+        "low": 1.0,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 70,
+        "point": 1.0
+      }
+    },
+    "section": {
+      "anchored_link_coverage": 1.0,
+      "cooccurrence_annotated_match_rate": 0.04179456906729634,
+      "counts": {
+        "fn": 0,
+        "fp": 8116,
+        "tp": 354
+      },
+      "link_coverage_by_location": {
+        "background": [
+          319,
+          319
+        ],
+        "result": [
+          466,
+          466
+        ]
+      },
+      "pair_coverage": {
+        "high": 1.0,
+        "low": 1.0,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 70,
+        "point": 1.0
+      }
+    },
+    "sentence": {
+      "anchored_link_coverage": 0.9859872611464968,
+      "cooccurrence_annotated_match_rate": 0.3746031746031746,
+      "counts": {
+        "fn": 0,
+        "fp": 591,
+        "tp": 354
+      },
+      "link_coverage_by_location": {
+        "background": [
+          319,
+          319
+        ],
+        "result": [
+          466,
+          466
+        ]
+      },
+      "pair_coverage": {
+        "high": 1.0,
+        "low": 1.0,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 70,
+        "point": 1.0
+      }
+    }
+  },
+  "links_without_trigger_position": 0,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "e1.toml",
+    "config_sha256": "1934b8a471f092b036cb852ae61ce665fc4381a0052521afd99c51261e192b91",
+    "inputs_sha256": {
+      "biotriplex_release": "97a1d2b29ac8282a4924647421d0c48e476d509babf44e9364f46932a2a575aa"
+    },
+    "python": "3.13.7",
+    "stage": "e1"
+  },
+  "negative_links": 18,
+  "papers": 70,
+  "papers_with_links": 54,
+  "pubtator_surface_coverage": {
+    "disease_cluster_coverage": 0.868421052631579,
+    "gene_cluster_coverage": 0.8040780141843972,
+    "pair_coverage_both_entities": {
+      "high": 0.9336882010801828,
+      "low": 0.8441512388320899,
+      "n_resamples": 10000,
+      "n_undefined": 0,
+      "n_units": 49,
+      "point": 0.8955223880597015
+    },
+    "papers_with_annotation": 49,
+    "papers_without_annotation": 21,
+    "tool_disease_surfaces_in_text_absent_from_gold": 0.7443857331571995,
+    "tool_gene_surfaces_in_text_absent_from_gold": 0.2231012658227848
+  },
+  "unplaced_spans": 7
+}

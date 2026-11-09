@@ -1,0 +1,21 @@
+# Workload projection per judgment form. No LLM. chars_per_token is an assumption.
+[run]
+stage = "workload"
+output = "results/workload.json"
+hashed_inputs = { biotriplex_release = "../../archive_v1/experiments/biotriplex/data/splits.json" }
+
+[workload]
+chars_per_token = 4.0
+window_cap_per_pair = 3
+
+[biotriplex]
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[biored]
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[task_papers]
+xml_dir = "../../archive_v1/.Input/100papers"
+pubtator_dir = "../../archive_v1/cache/pubtator"

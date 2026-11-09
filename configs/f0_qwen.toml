@@ -1,0 +1,66 @@
+# F0 local feasibility (thinking off). Start the server first:
+#   scripts/serve_local.ps1 -Model qwen3.5-9b
+[run]
+stage = "f0"
+output = "results/f0_qwen.json"
+runs_dir = "runs"
+hashed_inputs = { biotriplex_release = "../../archive_v1/experiments/biotriplex/data/splits.json", biored_dev = "../../archive_v1/experiments/biored/data/BioRED/Dev.BioC.JSON" }
+
+[f0]
+run_id = "f0_qwen"
+model_id = "qwen3.5-9b"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+timeout_seconds = 900
+level = "block"
+load_bands = [1, 4, 15, 40]
+windows_per_stratum = 2
+seed = 20261107
+output_base_tokens = 400
+output_tokens_per_pair = 100
+workload_results = "results/workload.json"
+project_workloads = ["biored_development_gold_entities", "biotriplex_development_gold_entities", "task_papers_pubtator_entities"]
+report_precision_for = ["biored_dev"]
+
+[[f0.datasets]]
+name = "biored_dev"
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[[f0.datasets]]
+name = "biotriplex_train"
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+# Same 39 windows for every condition. Subsets keep one window per dataset and stratum.
+[[f0.conditions]]
+name = "json_pairwise"
+form = "pairwise"
+
+[[f0.conditions]]
+name = "json_joint"
+form = "joint"
+
+[[f0.conditions]]
+name = "lines_joint"
+form = "joint"
+output_format = "lines"
+
+[[f0.conditions]]
+name = "lines_pairwise_subset"
+form = "pairwise"
+output_format = "lines"
+per_stratum_limit = 1
+
+[[f0.conditions]]
+name = "json_pairwise_subset_cold"
+form = "pairwise"
+cache_prompt = false
+per_stratum_limit = 1
+
+[[f0.conditions]]
+name = "json_chunked5"
+form = "chunked"
+chunk_size = 5

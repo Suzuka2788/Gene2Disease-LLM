@@ -1,0 +1,487 @@
+{
+  "gate_hours": 72,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "f0_report_qwen.toml",
+    "config_sha256": "7ff621187615bc65733f6607fc6b0363520ef67ac1a45e592d61d37b3d8d2530",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "f0_report"
+  },
+  "models": {
+    "qwen3.5-9b": {
+      "comparisons": [
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 120,
+              "edges_in_gold_first": 54,
+              "edges_in_gold_second": 28,
+              "edges_matching_gold_first": 0.45,
+              "edges_matching_gold_second": 0.5714285714285714,
+              "edges_second": 49,
+              "found_first": 54,
+              "found_second": 28,
+              "gold": 74,
+              "pair_agreement": 0.2226027397260274,
+              "pairs": 292,
+              "recall_first": 0.7297297297297297,
+              "recall_second": 0.3783783783783784,
+              "same_pair_outcome": 65,
+              "strict_found_first": 54,
+              "strict_found_second": 4,
+              "strict_recall_first": 0.7297297297297297,
+              "strict_recall_second": 0.05405405405405406,
+              "windows": 17
+            },
+            "biotriplex_train": {
+              "edges_first": 146,
+              "edges_in_gold_first": 73,
+              "edges_in_gold_second": 55,
+              "edges_second": 147,
+              "found_first": 73,
+              "found_second": 55,
+              "gold": 104,
+              "pair_agreement": 0.3551236749116608,
+              "pairs": 566,
+              "recall_first": 0.7019230769230769,
+              "recall_second": 0.5288461538461539,
+              "same_pair_outcome": 201,
+              "strict_found_first": 63,
+              "strict_found_second": 3,
+              "strict_recall_first": 0.6057692307692307,
+              "strict_recall_second": 0.028846153846153848,
+              "windows": 22
+            }
+          },
+          "common_windows": 39,
+          "first": "json_joint",
+          "json_joint": {
+            "answered_pair_rate": 0.9020979020979021,
+            "calls": 39,
+            "completion_tokens": 45399,
+            "outcomes": {
+              "ok": 38,
+              "parse_failure": 1
+            },
+            "wall_seconds": 717.115214499936
+          },
+          "lines_joint": {
+            "answered_pair_rate": 0.5466200466200466,
+            "calls": 39,
+            "completion_tokens": 26841,
+            "outcomes": {
+              "ok": 38,
+              "parse_failure": 1
+            },
+            "wall_seconds": 459.02186949996394
+          },
+          "run": "f0_qwen",
+          "second": "lines_joint"
+        },
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 87,
+              "edges_in_gold_first": 23,
+              "edges_in_gold_second": 24,
+              "edges_matching_gold_first": 0.26436781609195403,
+              "edges_matching_gold_second": 0.27906976744186046,
+              "edges_second": 86,
+              "found_first": 23,
+              "found_second": 24,
+              "gold": 24,
+              "pair_agreement": 0.7586206896551724,
+              "pairs": 145,
+              "recall_first": 0.9583333333333334,
+              "recall_second": 1.0,
+              "same_pair_outcome": 110,
+              "strict_found_first": 23,
+              "strict_found_second": 1,
+              "strict_recall_first": 0.9583333333333334,
+              "strict_recall_second": 0.041666666666666664,
+              "windows": 9
+            },
+            "biotriplex_train": {
+              "edges_first": 133,
+              "edges_in_gold_first": 45,
+              "edges_in_gold_second": 43,
+              "edges_second": 126,
+              "found_first": 45,
+              "found_second": 43,
+              "gold": 48,
+              "pair_agreement": 0.9090909090909091,
+              "pairs": 352,
+              "recall_first": 0.9375,
+              "recall_second": 0.8958333333333334,
+              "same_pair_outcome": 320,
+              "strict_found_first": 37,
+              "strict_found_second": 4,
+              "strict_recall_first": 0.7708333333333334,
+              "strict_recall_second": 0.08333333333333333,
+              "windows": 12
+            }
+          },
+          "common_windows": 21,
+          "first": "json_pairwise",
+          "json_pairwise": {
+            "answered_pair_rate": 0.9979879275653923,
+            "calls": 497,
+            "completion_tokens": 34028,
+            "outcomes": {
+              "ok": 496,
+              "truncated": 1
+            },
+            "wall_seconds": 583.9395822998049
+          },
+          "lines_pairwise_subset": {
+            "answered_pair_rate": 0.9577464788732394,
+            "calls": 497,
+            "completion_tokens": 16022,
+            "outcomes": {
+              "ok": 497
+            },
+            "wall_seconds": 376.58572800004913
+          },
+          "run": "f0_qwen",
+          "second": "lines_pairwise_subset"
+        },
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 87,
+              "edges_in_gold_first": 23,
+              "edges_in_gold_second": 24,
+              "edges_matching_gold_first": 0.26436781609195403,
+              "edges_matching_gold_second": 0.27906976744186046,
+              "edges_second": 86,
+              "found_first": 23,
+              "found_second": 24,
+              "gold": 24,
+              "pair_agreement": 0.8827586206896552,
+              "pairs": 145,
+              "recall_first": 0.9583333333333334,
+              "recall_second": 1.0,
+              "same_pair_outcome": 128,
+              "strict_found_first": 23,
+              "strict_found_second": 24,
+              "strict_recall_first": 0.9583333333333334,
+              "strict_recall_second": 1.0,
+              "windows": 9
+            },
+            "biotriplex_train": {
+              "edges_first": 133,
+              "edges_in_gold_first": 45,
+              "edges_in_gold_second": 47,
+              "edges_second": 133,
+              "found_first": 45,
+              "found_second": 47,
+              "gold": 48,
+              "pair_agreement": 0.9829545454545454,
+              "pairs": 352,
+              "recall_first": 0.9375,
+              "recall_second": 0.9791666666666666,
+              "same_pair_outcome": 346,
+              "strict_found_first": 37,
+              "strict_found_second": 39,
+              "strict_recall_first": 0.7708333333333334,
+              "strict_recall_second": 0.8125,
+              "windows": 12
+            }
+          },
+          "common_windows": 21,
+          "first": "json_pairwise",
+          "json_pairwise": {
+            "answered_pair_rate": 0.9979879275653923,
+            "calls": 497,
+            "completion_tokens": 34028,
+            "outcomes": {
+              "ok": 496,
+              "truncated": 1
+            },
+            "wall_seconds": 583.9395822998049
+          },
+          "json_pairwise_subset_cold": {
+            "answered_pair_rate": 1.0,
+            "calls": 497,
+            "completion_tokens": 33261,
+            "outcomes": {
+              "ok": 497
+            },
+            "wall_seconds": 563.2329854997661
+          },
+          "run": "f0_qwen",
+          "second": "json_pairwise_subset_cold"
+        },
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 203,
+              "edges_in_gold_first": 70,
+              "edges_in_gold_second": 54,
+              "edges_matching_gold_first": 0.3448275862068966,
+              "edges_matching_gold_second": 0.45,
+              "edges_second": 120,
+              "found_first": 70,
+              "found_second": 54,
+              "gold": 74,
+              "pair_agreement": 0.541095890410959,
+              "pairs": 292,
+              "recall_first": 0.9459459459459459,
+              "recall_second": 0.7297297297297297,
+              "same_pair_outcome": 158,
+              "strict_found_first": 70,
+              "strict_found_second": 54,
+              "strict_recall_first": 0.9459459459459459,
+              "strict_recall_second": 0.7297297297297297,
+              "windows": 17
+            },
+            "biotriplex_train": {
+              "edges_first": 243,
+              "edges_in_gold_first": 93,
+              "edges_in_gold_second": 73,
+              "edges_second": 146,
+              "found_first": 93,
+              "found_second": 73,
+              "gold": 104,
+              "pair_agreement": 0.7579505300353356,
+              "pairs": 566,
+              "recall_first": 0.8942307692307693,
+              "recall_second": 0.7019230769230769,
+              "same_pair_outcome": 429,
+              "strict_found_first": 81,
+              "strict_found_second": 63,
+              "strict_recall_first": 0.7788461538461539,
+              "strict_recall_second": 0.6057692307692307,
+              "windows": 22
+            }
+          },
+          "common_windows": 39,
+          "first": "json_pairwise",
+          "json_joint": {
+            "answered_pair_rate": 0.9020979020979021,
+            "calls": 39,
+            "completion_tokens": 45399,
+            "outcomes": {
+              "ok": 38,
+              "parse_failure": 1
+            },
+            "wall_seconds": 717.115214499936
+          },
+          "json_pairwise": {
+            "answered_pair_rate": 0.993006993006993,
+            "calls": 858,
+            "completion_tokens": 69880,
+            "outcomes": {
+              "ok": 852,
+              "truncated": 6
+            },
+            "wall_seconds": 1157.6897257996898
+          },
+          "run": "f0_qwen",
+          "second": "json_joint"
+        },
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 203,
+              "edges_in_gold_first": 70,
+              "edges_in_gold_second": 67,
+              "edges_matching_gold_first": 0.3448275862068966,
+              "edges_matching_gold_second": 0.40606060606060607,
+              "edges_second": 165,
+              "found_first": 70,
+              "found_second": 67,
+              "gold": 74,
+              "pair_agreement": 0.7054794520547946,
+              "pairs": 292,
+              "recall_first": 0.9459459459459459,
+              "recall_second": 0.9054054054054054,
+              "same_pair_outcome": 206,
+              "strict_found_first": 70,
+              "strict_found_second": 67,
+              "strict_recall_first": 0.9459459459459459,
+              "strict_recall_second": 0.9054054054054054,
+              "windows": 17
+            },
+            "biotriplex_train": {
+              "edges_first": 243,
+              "edges_in_gold_first": 93,
+              "edges_in_gold_second": 74,
+              "edges_second": 203,
+              "found_first": 93,
+              "found_second": 74,
+              "gold": 104,
+              "pair_agreement": 0.8250883392226148,
+              "pairs": 566,
+              "recall_first": 0.8942307692307693,
+              "recall_second": 0.7115384615384616,
+              "same_pair_outcome": 467,
+              "strict_found_first": 81,
+              "strict_found_second": 73,
+              "strict_recall_first": 0.7788461538461539,
+              "strict_recall_second": 0.7019230769230769,
+              "windows": 22
+            }
+          },
+          "common_windows": 39,
+          "first": "json_pairwise",
+          "json_chunked5": {
+            "answered_pair_rate": 0.993006993006993,
+            "calls": 190,
+            "completion_tokens": 54395,
+            "outcomes": {
+              "ok": 189,
+              "truncated": 1
+            },
+            "wall_seconds": 859.9311407999921
+          },
+          "json_pairwise": {
+            "answered_pair_rate": 0.993006993006993,
+            "calls": 858,
+            "completion_tokens": 69880,
+            "outcomes": {
+              "ok": 852,
+              "truncated": 6
+            },
+            "wall_seconds": 1157.6897257996898
+          },
+          "run": "f0_qwen",
+          "second": "json_chunked5"
+        },
+        {
+          "by_dataset": {
+            "biored_dev": {
+              "edges_first": 165,
+              "edges_in_gold_first": 67,
+              "edges_in_gold_second": 54,
+              "edges_matching_gold_first": 0.40606060606060607,
+              "edges_matching_gold_second": 0.45,
+              "edges_second": 120,
+              "found_first": 67,
+              "found_second": 54,
+              "gold": 74,
+              "pair_agreement": 0.4965753424657534,
+              "pairs": 292,
+              "recall_first": 0.9054054054054054,
+              "recall_second": 0.7297297297297297,
+              "same_pair_outcome": 145,
+              "strict_found_first": 67,
+              "strict_found_second": 54,
+              "strict_recall_first": 0.9054054054054054,
+              "strict_recall_second": 0.7297297297297297,
+              "windows": 17
+            },
+            "biotriplex_train": {
+              "edges_first": 203,
+              "edges_in_gold_first": 74,
+              "edges_in_gold_second": 73,
+              "edges_second": 146,
+              "found_first": 74,
+              "found_second": 73,
+              "gold": 104,
+              "pair_agreement": 0.803886925795053,
+              "pairs": 566,
+              "recall_first": 0.7115384615384616,
+              "recall_second": 0.7019230769230769,
+              "same_pair_outcome": 455,
+              "strict_found_first": 73,
+              "strict_found_second": 63,
+              "strict_recall_first": 0.7019230769230769,
+              "strict_recall_second": 0.6057692307692307,
+              "windows": 22
+            }
+          },
+          "common_windows": 39,
+          "first": "json_chunked5",
+          "json_chunked5": {
+            "answered_pair_rate": 0.993006993006993,
+            "calls": 190,
+            "completion_tokens": 54395,
+            "outcomes": {
+              "ok": 189,
+              "truncated": 1
+            },
+            "wall_seconds": 859.9311407999921
+          },
+          "json_joint": {
+            "answered_pair_rate": 0.9020979020979021,
+            "calls": 39,
+            "completion_tokens": 45399,
+            "outcomes": {
+              "ok": 38,
+              "parse_failure": 1
+            },
+            "wall_seconds": 717.115214499936
+          },
+          "run": "f0_qwen",
+          "second": "json_joint"
+        }
+      ],
+      "schedule": {
+        "complete": true,
+        "hours": 7.127601059694906,
+        "hours_with_margin": 8.553121271633888,
+        "items": [
+          {
+            "condition": "json_pairwise",
+            "hours": 0.9912398746471078,
+            "item": "BioRED Dev + Test, pairwise"
+          },
+          {
+            "condition": "json_joint",
+            "hours": 0.7256297450563917,
+            "item": "BioRED Dev + Test, joint"
+          },
+          {
+            "condition": "json_pairwise",
+            "hours": 2.5629879270377254,
+            "item": "BioTriplex train + val + test, pairwise"
+          },
+          {
+            "condition": "json_joint",
+            "hours": 2.155770025937675,
+            "item": "BioTriplex train + val + test, joint"
+          },
+          {
+            "condition": "json_pairwise",
+            "hours": 0.39698043653866977,
+            "item": "Exhaustive set (10% of task papers), pairwise"
+          },
+          {
+            "condition": "json_joint",
+            "hours": 0.2949930504773372,
+            "item": "Exhaustive set (10% of task papers), joint"
+          }
+        ]
+      }
+    }
+  },
+  "not_costed": [
+    "S1 long-paper stress test",
+    "chunked secondary arm (EF)",
+    "E6 sentence-window ablation",
+    "development reruns beyond the 20% margin"
+  ],
+  "note": "Projections are in-sample fits on the F0 sample, applied to workload totals; they are provisional, not validated on other windows. The gate covers the section 15 baseline schedule only.",
+  "run_once": {
+    "by_model": {
+      "qwen3.5-9b": {
+        "complete": true,
+        "hours": 3.9698043653866972,
+        "hours_with_margin": 4.763765238464036,
+        "items": [
+          {
+            "condition": "json_pairwise",
+            "hours": 3.9698043653866972,
+            "item": "100 task papers, pairwise (worst case)"
+          }
+        ]
+      }
+    },
+    "charged_model": "qwen3.5-9b"
+  },
+  "schedule_complete": true,
+  "section15_baseline_gate_met": true,
+  "section15_baseline_hours_all_models_with_margin": 13.316886510097923
+}

@@ -1,0 +1,16 @@
+[project]
+name = "gene2disease"
+version = "0.1.0"
+description = "Paper-level gene-disease graph construction and evaluation"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+g2d = "gene2disease.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

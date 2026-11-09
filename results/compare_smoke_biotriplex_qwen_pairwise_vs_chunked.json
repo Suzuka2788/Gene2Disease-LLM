@@ -1,0 +1,102 @@
+{
+  "complete_windows_diagnostic": {
+    "found_first": 26,
+    "found_second": 25,
+    "gold_exposures": 34,
+    "recall_first": 0.7647058823529411,
+    "recall_second": 0.7352941176470589,
+    "windows": 13,
+    "windows_complete_in_both": 11
+  },
+  "delta": 0.05,
+  "first": "smoke_biotriplex_qwen_pairwise",
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "compare_smoke_biotriplex_qwen.toml",
+    "config_sha256": "48600f75aa73adacd90b282048cfd1bc60901f2924c7753158946d22e47b384d",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "compare"
+  },
+  "papers": 2,
+  "recall": {
+    "difference": {
+      "high": 0.4,
+      "low": 0.08333333333333337,
+      "n_resamples": 1000,
+      "n_undefined": 0,
+      "n_units": 2,
+      "point": 0.17647058823529416
+    },
+    "first": 1.0,
+    "reading": "first_meaningfully_higher",
+    "second": 0.8235294117647058
+  },
+  "second": "smoke_biotriplex_qwen_chunked",
+  "strict_reading": {
+    "recall": {
+      "difference": {
+        "high": 0.20000000000000007,
+        "low": 0.08333333333333337,
+        "n_resamples": 1000,
+        "n_undefined": 0,
+        "n_units": 2,
+        "point": 0.11764705882352944
+      },
+      "first": 0.9411764705882353,
+      "reading": "first_meaningfully_higher",
+      "second": 0.8235294117647058
+    }
+  },
+  "view": "main",
+  "window_level": {
+    "gold_exposures_by_request_size": {
+      "first": {
+        "<=1": {
+          "found": 31,
+          "gold_exposures": 41
+        }
+      },
+      "second": {
+        "<=1": {
+          "found": 1,
+          "gold_exposures": 1
+        },
+        "<=15": {
+          "found": 16,
+          "gold_exposures": 22
+        },
+        "<=4": {
+          "found": 11,
+          "gold_exposures": 18
+        }
+      }
+    },
+    "gold_exposures_by_window_load": {
+      "<=15": {
+        "found_both": 16,
+        "found_first": 19,
+        "found_second": 16,
+        "gold_exposures": 22,
+        "only_first": 3,
+        "only_second": 0
+      },
+      "<=4": {
+        "found_both": 7,
+        "found_first": 11,
+        "found_second": 8,
+        "gold_exposures": 14,
+        "only_first": 4,
+        "only_second": 1
+      },
+      "<=40": {
+        "found_both": 1,
+        "found_first": 1,
+        "found_second": 4,
+        "gold_exposures": 5,
+        "only_first": 0,
+        "only_second": 3
+      }
+    }
+  }
+}

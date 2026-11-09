@@ -1,0 +1,28 @@
+# E4 frozen test evaluation. Same settings as ef_dev_biotriplex_qwen_chunked (development).
+[run]
+stage = "judge"
+output = "results/e4_biotriplex_qwen_chunked.json"
+runs_dir = "runs"
+freeze_manifest = "configs/e4/frozen_manifest.json"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["val", "test"]
+
+[judge]
+run_id = "e4_biotriplex_qwen_chunked"
+form = "chunked"
+chunk_size = 5
+level = "block"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+model_id = "qwen3.5-9b"
+timeout_seconds = 900
+output_format = "json"
+thinking = false
+cache_prompt = false
+output_base_tokens = 1000
+output_tokens_per_pair = 150
+# Execution control, not part of the condition: stop at a server failure.
+stop_on_operational_failure = true

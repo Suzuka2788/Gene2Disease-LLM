@@ -1,0 +1,32 @@
+{
+  "backend_attempts": 24,
+  "backend_seconds": 142.90611589995387,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biotriplex",
+  "dispositions": {
+    "edge": 32,
+    "negative_only": 1,
+    "no_assertion": 26,
+    "not_assessed_no_cooccurrence": 141
+  },
+  "failed_calls": 1,
+  "form": "chunked",
+  "level": "block",
+  "logical_requests": 24,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "smoke_biotriplex_qwen_chunked.toml",
+    "config_sha256": "b0aaf917aed9ccd27427fa80d55794305acfbf5af7601185d08e900158f846e9",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "qwen3.5-9b",
+  "papers": 2,
+  "prompt_characters": 85827,
+  "rejected_assertions": 0,
+  "response_characters": 25767,
+  "run_id": "smoke_biotriplex_qwen_chunked",
+  "truncated_calls": 1
+}

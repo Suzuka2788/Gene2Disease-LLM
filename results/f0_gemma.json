@@ -1,0 +1,346 @@
+{
+  "conditions": [
+    {
+      "answered_pair_rate": 1.0,
+      "budget_share_used": {
+        "max": 0.982,
+        "min": 0.062,
+        "p50": 0.176,
+        "p90": 0.19
+      },
+      "cache_hits_this_run": 0,
+      "cached_prompt_tokens": 571480,
+      "calls": 858,
+      "calls_over_80_percent_of_budget": 1,
+      "completion_tokens": 64217,
+      "completion_tokens_per_call": {
+        "max": 491,
+        "min": 31,
+        "p50": 88,
+        "p90": 95
+      },
+      "completion_tokens_per_listed_pair": 74.84498834498835,
+      "condition": "json_pairwise",
+      "evaluated_prompt_tokens": 269548,
+      "form": "pairwise",
+      "generation_tokens_per_second": 32.33397841173597,
+      "measured_calls": 858,
+      "outcomes": {
+        "ok": 858
+      },
+      "pairs_listed": 858,
+      "parsed_call_rate": 1.0,
+      "peak_total_gpu_memory_mib_including_desktop": 11655,
+      "projected_hours_block": {
+        "biored_development_gold_entities": {
+          "calls": 1293,
+          "hours": 0.9811070151390878
+        },
+        "biotriplex_development_gold_entities": {
+          "calls": 4591,
+          "hours": 3.6237728954498287
+        },
+        "task_papers_pubtator_entities": {
+          "calls": 10331,
+          "hours": 7.884338018576198
+        }
+      },
+      "prompt_tokens": 841028,
+      "prompt_tokens_per_second": 1179.6956465060648,
+      "quality": {
+        "biored_dev": {
+          "edges_matching_document_gold": 0.3490566037735849,
+          "gold_found": 74,
+          "gold_pairs": 74,
+          "pairs_edge": 212,
+          "pairs_negative_only": 1,
+          "pairs_no_assertion": 79,
+          "predicted_edges": 212,
+          "predicted_edges_in_gold": 74,
+          "recall_of_cooccurring_document_gold": 1.0,
+          "strict_gold_found": 74,
+          "strict_predicted_edges": 212,
+          "strict_recall_of_cooccurring_document_gold": 1.0,
+          "windows": 17
+        },
+        "biotriplex_train": {
+          "gold_found": 100,
+          "gold_pairs": 104,
+          "pairs_edge": 274,
+          "pairs_negative_only": 4,
+          "pairs_no_assertion": 288,
+          "predicted_edges": 274,
+          "predicted_edges_in_gold": 100,
+          "recall_of_cooccurring_document_gold": 0.9615384615384616,
+          "strict_gold_found": 100,
+          "strict_predicted_edges": 274,
+          "strict_recall_of_cooccurring_document_gold": 0.9615384615384616,
+          "windows": 22
+        }
+      },
+      "raw_outcomes": {
+        "ok": 858
+      },
+      "raw_rejected_assertions": 0,
+      "reasoning_characters": 0,
+      "rejected_assertions": 0,
+      "retried_calls": 0,
+      "seconds_model": {
+        "calls": 858,
+        "intercept": 2.4940997975578956,
+        "per_first_call": 2.38100500439798,
+        "per_new_window_characters": -8.615792370892364e-05,
+        "predicted_over_measured_by_dataset": {
+          "biored_dev": 0.8221361732189842,
+          "biotriplex_train": 1.1280579366574257
+        },
+        "r_squared": 0.0427460951608446
+      },
+      "wall_seconds": 2227.9839536998916,
+      "windows": 39
+    },
+    {
+      "answered_pair_rate": 0.6899766899766899,
+      "budget_share_used": {
+        "max": 0.76875,
+        "min": 0.076,
+        "p50": 0.36714285714285716,
+        "p90": 0.5995833333333334
+      },
+      "cache_hits_this_run": 0,
+      "cached_prompt_tokens": 4459,
+      "calls": 39,
+      "calls_over_80_percent_of_budget": 0,
+      "completion_tokens": 41458,
+      "completion_tokens_per_call": {
+        "max": 6273,
+        "min": 38,
+        "p50": 435,
+        "p90": 2698
+      },
+      "completion_tokens_per_listed_pair": 48.31934731934732,
+      "condition": "json_joint",
+      "evaluated_prompt_tokens": 53322,
+      "form": "joint",
+      "generation_tokens_per_second": 46.93618589654154,
+      "measured_calls": 39,
+      "outcomes": {
+        "ok": 36,
+        "parse_failure": 3
+      },
+      "pairs_listed": 858,
+      "parsed_call_rate": 0.9230769230769231,
+      "peak_total_gpu_memory_mib_including_desktop": 11573,
+      "projected_hours_block": {
+        "biored_development_gold_entities": {
+          "calls": 134,
+          "hours": 0.47482966467121396
+        },
+        "biotriplex_development_gold_entities": {
+          "calls": 699,
+          "hours": 2.0020496286552647
+        },
+        "task_papers_pubtator_entities": {
+          "calls": 1140,
+          "hours": 3.8719466793129254
+        }
+      },
+      "prompt_tokens": 57781,
+      "prompt_tokens_per_second": 2115.309813626059,
+      "quality": {
+        "biored_dev": {
+          "edges_matching_document_gold": 0.5348837209302325,
+          "gold_found": 23,
+          "gold_pairs": 74,
+          "pairs_all_assertions_rejected": 6,
+          "pairs_edge": 43,
+          "pairs_failed": 165,
+          "pairs_negative_only": 3,
+          "pairs_no_assertion": 72,
+          "pairs_omitted_by_model": 3,
+          "predicted_edges": 43,
+          "predicted_edges_in_gold": 23,
+          "recall_of_cooccurring_document_gold": 0.3108108108108108,
+          "strict_gold_found": 23,
+          "strict_predicted_edges": 43,
+          "strict_recall_of_cooccurring_document_gold": 0.3108108108108108,
+          "windows": 17
+        },
+        "biotriplex_train": {
+          "gold_found": 62,
+          "gold_pairs": 104,
+          "pairs_edge": 112,
+          "pairs_failed": 78,
+          "pairs_negative_only": 4,
+          "pairs_no_assertion": 358,
+          "pairs_omitted_by_model": 14,
+          "predicted_edges": 112,
+          "predicted_edges_in_gold": 62,
+          "recall_of_cooccurring_document_gold": 0.5961538461538461,
+          "strict_gold_found": 62,
+          "strict_predicted_edges": 112,
+          "strict_recall_of_cooccurring_document_gold": 0.5961538461538461,
+          "windows": 22
+        }
+      },
+      "raw_outcomes": {
+        "ok": 36,
+        "parse_failure": 3
+      },
+      "raw_rejected_assertions": 8,
+      "reasoning_characters": 0,
+      "rejected_assertions": 8,
+      "retried_calls": 0,
+      "seconds_model": {
+        "calls": 39,
+        "intercept": 3.7502887035076284,
+        "per_new_window_characters": 0.0009686975313557694,
+        "per_pairs": 0.8295423457624242,
+        "predicted_over_measured_by_dataset": {
+          "biored_dev": 0.8874905323787506,
+          "biotriplex_train": 1.07685922817963
+        },
+        "r_squared": 0.8267018233259776
+      },
+      "wall_seconds": 912.121004900022,
+      "windows": 39
+    },
+    {
+      "answered_pair_rate": 0.8986013986013986,
+      "budget_share_used": {
+        "max": 0.346,
+        "min": 0.02,
+        "p50": 0.1775,
+        "p90": 0.28625
+      },
+      "cache_hits_this_run": 0,
+      "cached_prompt_tokens": 4504,
+      "calls": 39,
+      "calls_over_80_percent_of_budget": 0,
+      "completion_tokens": 20424,
+      "completion_tokens_per_call": {
+        "max": 2597,
+        "min": 10,
+        "p50": 229,
+        "p90": 1632
+      },
+      "completion_tokens_per_listed_pair": 23.804195804195803,
+      "condition": "lines_joint",
+      "evaluated_prompt_tokens": 54096,
+      "form": "joint",
+      "generation_tokens_per_second": 46.07118018090734,
+      "measured_calls": 39,
+      "outcomes": {
+        "ok": 39
+      },
+      "output_format": "lines",
+      "pairs_listed": 858,
+      "parsed_call_rate": 1.0,
+      "peak_total_gpu_memory_mib_including_desktop": 11697,
+      "projected_hours_block": {
+        "biored_development_gold_entities": {
+          "calls": 134,
+          "hours": 0.24817654045883228
+        },
+        "biotriplex_development_gold_entities": {
+          "calls": 699,
+          "hours": 1.0206962483742728
+        },
+        "task_papers_pubtator_entities": {
+          "calls": 1140,
+          "hours": 2.033498531076675
+        }
+      },
+      "prompt_tokens": 58600,
+      "prompt_tokens_per_second": 2458.928538798443,
+      "quality": {
+        "biored_dev": {
+          "edges_matching_document_gold": 0.6857142857142857,
+          "gold_found": 24,
+          "gold_pairs": 74,
+          "pairs_all_assertions_rejected": 59,
+          "pairs_edge": 35,
+          "pairs_negative_only": 5,
+          "pairs_no_assertion": 186,
+          "pairs_omitted_by_model": 7,
+          "predicted_edges": 35,
+          "predicted_edges_in_gold": 24,
+          "recall_of_cooccurring_document_gold": 0.32432432432432434,
+          "strict_gold_found": 7,
+          "strict_predicted_edges": 14,
+          "strict_recall_of_cooccurring_document_gold": 0.0945945945945946,
+          "windows": 17
+        },
+        "biotriplex_train": {
+          "gold_found": 78,
+          "gold_pairs": 104,
+          "pairs_all_assertions_rejected": 21,
+          "pairs_edge": 151,
+          "pairs_negative_only": 1,
+          "pairs_no_assertion": 393,
+          "predicted_edges": 151,
+          "predicted_edges_in_gold": 78,
+          "recall_of_cooccurring_document_gold": 0.75,
+          "strict_gold_found": 70,
+          "strict_predicted_edges": 116,
+          "strict_recall_of_cooccurring_document_gold": 0.6730769230769231,
+          "windows": 22
+        }
+      },
+      "raw_outcomes": {
+        "ok": 39
+      },
+      "raw_rejected_assertions": 175,
+      "reasoning_characters": 0,
+      "rejected_assertions": 87,
+      "retried_calls": 0,
+      "seconds_model": {
+        "calls": 39,
+        "intercept": 2.7349246878213047,
+        "per_new_window_characters": -0.0003485656307332082,
+        "per_pairs": 0.44490537595962515,
+        "predicted_over_measured_by_dataset": {
+          "biored_dev": 1.05958349315543,
+          "biotriplex_train": 0.9694834402378807
+        },
+        "r_squared": 0.9220107737205991
+      },
+      "wall_seconds": 468.9196507000015,
+      "windows": 39
+    }
+  ],
+  "level": "block",
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "f0_gemma.toml",
+    "config_sha256": "8b5a49fedf28edf2c486feac0d160e992263c1d98e2481499999c3ac82fe849d",
+    "inputs_sha256": {
+      "biored_dev": "d5ab4d05673ac46fb5e3b2904d2820462dec2c4c50dfcdd8678635ff1b8ce1f5",
+      "biotriplex_release": "97a1d2b29ac8282a4924647421d0c48e476d509babf44e9364f46932a2a575aa"
+    },
+    "python": "3.13.7",
+    "stage": "f0"
+  },
+  "model_id": "gemma-4-12b",
+  "selected_by_dataset": {
+    "biored_dev": 17,
+    "biotriplex_train": 22
+  },
+  "selected_by_load_band": {
+    "<=1": 8,
+    "<=15": 8,
+    "<=4": 8,
+    "<=40": 7,
+    ">40": 6,
+    "extreme": 2
+  },
+  "selected_pairs": 858,
+  "selected_windows": 39,
+  "server": {
+    "available": true,
+    "build_info": "b12182-fd27b2034",
+    "model_alias": "gemma-4-12b",
+    "n_ctx": 32768,
+    "total_slots": 1
+  }
+}

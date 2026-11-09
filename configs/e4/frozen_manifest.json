@@ -1,0 +1,83 @@
+{
+  "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+  "configs": {
+    "configs/e4/compare_e4_biored_gemma_pairwise_vs_joint.toml": "cef6535f35bf9946d84487fa77425c70951abfda7e2c8334c6386892e74705e4",
+    "configs/e4/compare_e4_biored_qwen_pairwise_vs_chunked.toml": "a62c8e019c760b0803542d006652aa4f0b1273e09ac3df286080b46e223b6c12",
+    "configs/e4/compare_e4_biored_qwen_pairwise_vs_joint.toml": "eafe2f611438400072dbdf3946e99e756af0bb0b41517b084717d55ee3beab40",
+    "configs/e4/compare_e4_biotriplex_gemma_full_vs_abstract.toml": "c6940f5e86bdfae98169c90fbc6608b053e3bd6899619a3cde74367e0b9cbb14",
+    "configs/e4/compare_e4_biotriplex_gemma_pairwise_vs_joint.toml": "fb2a5fb87002366492daf6550795315041d6ee0952466f250903457036e3f6f5",
+    "configs/e4/compare_e4_biotriplex_qwen_full_vs_abstract.toml": "57718ab1db59a066711ab12e78dbc51b523417e817908819561417cd6bd51ac4",
+    "configs/e4/compare_e4_biotriplex_qwen_pairwise_vs_chunked.toml": "b08ea82cfe46658da687cf48d814ee9b972daae37cdfcf8085f086431682799b",
+    "configs/e4/compare_e4_biotriplex_qwen_pairwise_vs_joint.toml": "e3f41e518247a0cd4823172ab2400b8522f04a3492eb97fc21206ce1de5acd5e",
+    "configs/e4/e4_biored_gemma_joint.toml": "9f1f1e8fa1d3c393dff1c4086cc9b7b75de2f793e02e44782f020bc543d271d9",
+    "configs/e4/e4_biored_gemma_pairwise.toml": "f25ddab26b45726c85d9c476cc8e21fb9051ec17a3a32bc80c3f87615da07f5b",
+    "configs/e4/e4_biored_qwen_chunked.toml": "b9fd5d2523e048ac78bf804adf1007ac16c8dfd85fb1af4d5046b3713d8f42d2",
+    "configs/e4/e4_biored_qwen_joint.toml": "8a5a2d98dbac44e6b39f03dda94e03135a998f78284ce5d413c603c57d751b0c",
+    "configs/e4/e4_biored_qwen_pairwise.toml": "a5836f6de5614852b1fd9bc00934a15e894661f5f15d7b09dfe8fcf852f52e42",
+    "configs/e4/e4_biotriplex_gemma_joint.toml": "0f8977c836741e87cba3ddb3d67b3083d6c91c568c6b67522b2de6af3bf21733",
+    "configs/e4/e4_biotriplex_gemma_pairwise.toml": "45714274e4b5f0174dba7608c35235e67009515942bd2ed3c97cc48b784cc6f6",
+    "configs/e4/e4_biotriplex_gemma_pairwise_abstract.toml": "bd4ba844d6b40a94810790d5c1bf2fd09c0f13ac05fb451cfa6a2a1cc78196ee",
+    "configs/e4/e4_biotriplex_qwen_chunked.toml": "33e8597df1dd43f53f615159e919e43080d38394639c75094b10a141194088a7",
+    "configs/e4/e4_biotriplex_qwen_joint.toml": "c6573fe26f0dbd5f25286a4e68baa506c513253117ef5f00754716f43d962397",
+    "configs/e4/e4_biotriplex_qwen_pairwise.toml": "f8de8e0f5cbf30831887f24fceaf79dcad3d6c9e01a203c1b3043b0c8d2179a5",
+    "configs/e4/e4_biotriplex_qwen_pairwise_abstract.toml": "7eed48764f90ed451e2b50f337ea80dd77738462b896e22a9f748df212e018dc"
+  },
+  "data_sha256": {
+    "C:/Users/tongz/OneDrive/Desktop/26.10 NJITLab/archive_v1/experiments/biored/data/BioRED/Test.BioC.JSON": "35ec8aad0c62032689b4a957220c7532eb067dc7e159d70cc42e6d40e6c447c6",
+    "C:/Users/tongz/OneDrive/Desktop/26.10 NJITLab/archive_v1/experiments/biotriplex/data/splits.json": "97a1d2b29ac8282a4924647421d0c48e476d509babf44e9364f46932a2a575aa"
+  },
+  "frozen_on": "2026-11-08T17:53:50+00:00",
+  "judge_run_ids": [
+    "e4_biored_gemma_joint",
+    "e4_biored_gemma_pairwise",
+    "e4_biored_qwen_chunked",
+    "e4_biored_qwen_joint",
+    "e4_biored_qwen_pairwise",
+    "e4_biotriplex_gemma_joint",
+    "e4_biotriplex_gemma_pairwise",
+    "e4_biotriplex_gemma_pairwise_abstract",
+    "e4_biotriplex_qwen_chunked",
+    "e4_biotriplex_qwen_joint",
+    "e4_biotriplex_qwen_pairwise",
+    "e4_biotriplex_qwen_pairwise_abstract"
+  ],
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+    "config": "freeze.toml",
+    "config_sha256": "ed08a6aa54c66d38f3b902eb51b2411fb8d45e996aa1cde3f57f2af66c051583",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "freeze"
+  },
+  "notes": "Protocol fixed on development data (EF_DEV_RESULTS.md, RESEARCH_PLAN.md D14-D18).",
+  "protocol": {
+    "context_limit_check": "verified 2026-11-08 with synthetic prompts on this build and Qwen3.5-9B: a 34768-token prompt is refused with error type exceed_context_size_error; a 31868-token prompt stops generation at 32768 total tokens with finish_reason length (truncation), without context shifting",
+    "decoding": "temperature 0, thinking off, prompt cache off, one user message",
+    "estimand": "end-to-end relation-judgment performance under this protocol, output failures included (D18)",
+    "failures": "truncation, parse failure and context refusal (server error type exceed_context_size_error) are terminal outcomes of a request: no prediction, stored and replayed on resume; no repair or re-query",
+    "metrics": "micro recall on both corpora; precision and F1 on BioRED only; paper-level paired bootstrap, 10000 resamples, seed 20261107; delta 0.05 four-way reading on the interval of each comparison",
+    "models": [
+      "qwen3.5-9b: Qwen3.5-9B-Q4_K_M.gguf",
+      "gemma-4-12b: gemma-4-12b-it-qat-q4_0.gguf"
+    ],
+    "no_changes_after_e4": "no change of context size, chunking, format or any setting after E4 outcomes are seen",
+    "operational_failures": "server or transport errors stop the run before the affected paper is recorded; the run is resumed from the answer cache after the server is fixed, and every start is journaled",
+    "output": "JSON for every form and both models; minimal instruction; paragraph-level passages",
+    "output_cap": "1000 + 150 x listed pairs",
+    "primary_family": "canonical reading, pairwise minus joint: recall (BioRED, BioTriplex) and precision (BioRED), per model: 6 contrasts, Bonferroni interval level 1 - 0.05/6 = 0.99167",
+    "provider_block_retry": "exception to no re-query: the code retries a provider refusal once, identically; a second refusal is a terminal no-prediction outcome; the local server refused no request in development; any retry is reported",
+    "readings": "primary: canonical spellings; strict reading reported alongside as a descriptive sensitivity analysis",
+    "secondary": "descriptive: F1 at the level of its comparison config (0.99167 in pairwise-versus-joint configs); Qwen pairwise minus chunked and full text minus abstract (pairwise) at 0.95; strict-reading results; failure counts",
+    "server": "llama.cpp llama-server, --ctx-size 32768 --parallel 1 --n-gpu-layers 99 --flash-attn on --reasoning off",
+    "server_build": "b12182-fd27b2034"
+  },
+  "scripts_sha256": {
+    "scripts/run_ef_dev.py": "20ba3352edbfc0069703a4f6d416183e55a4585eea644c9633d068ed7402b049",
+    "scripts/serve_local.ps1": "18757c3643aba10a617462dc4b6fa30dcbf2e72fd132ae5c4aa5f066ec6296e0"
+  },
+  "weights_sha256": {
+    "Qwen3.5-9B-Q4_K_M.gguf": "03b74727a860a56338e042c4420bb3f04b2fec5734175f4cb9fa853daf52b7e8",
+    "gemma-4-12b-it-qat-q4_0.gguf": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b"
+  }
+}

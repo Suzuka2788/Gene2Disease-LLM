@@ -1,0 +1,25 @@
+# Not run yet. EF on development data (plan section 11), comparing runs made with the
+# settings frozen on 2026-11-07 (D14-D16, budget 1000 + 150 x pairs).
+# Start the server first: scripts/serve_local.ps1 -Model gemma-4-12b
+[run]
+stage = "compare"
+output = "results/compare_ef_dev_biotriplex_gemma_pairwise_vs_joint.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[stats]
+n_resamples = 10000
+seed = 20261107
+level = 0.95
+
+[compare]
+first = "ef_dev_biotriplex_gemma_pairwise"
+second = "ef_dev_biotriplex_gemma_joint"
+view = "main"
+delta = 0.05
+report_precision = false
+load_bands = [1, 4, 15, 40]

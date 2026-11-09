@@ -1,0 +1,26 @@
+# Smoke test of judge -> compare against the real server: 3 BioRED Dev papers.
+# Start the server first: scripts/serve_local.ps1 -Model qwen3.5-9b
+[run]
+stage = "judge"
+output = "results/smoke_biored_qwen_pairwise.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[judge]
+run_id = "smoke_biored_qwen_pairwise"
+form = "pairwise"
+level = "block"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+model_id = "qwen3.5-9b"
+timeout_seconds = 900
+max_papers = 3
+output_format = "json"
+thinking = false
+cache_prompt = false
+output_base_tokens = 400
+output_tokens_per_pair = 100

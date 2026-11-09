@@ -1,0 +1,27 @@
+# Not run yet. Matched abstract vs full-text comparison (TWO_WEEK_PLAN.md): identical to the
+# JSON pairwise run except the model reads only the abstract (input_scope = "abstract").
+# Start the server first: scripts/serve_local.ps1 -Model gemma-4-12b
+[run]
+stage = "judge"
+output = "results/ef_dev_biotriplex_gemma_pairwise_abstract.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[judge]
+run_id = "ef_dev_biotriplex_gemma_pairwise_abstract"
+form = "pairwise"
+level = "block"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+model_id = "gemma-4-12b"
+timeout_seconds = 900
+output_format = "json"
+thinking = false
+cache_prompt = false
+input_scope = "abstract"
+output_base_tokens = 1000
+output_tokens_per_pair = 150

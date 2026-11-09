@@ -1,0 +1,20 @@
+# E1: candidate ceiling on the BioTriplex development split. No LLM.
+[run]
+stage = "e1"
+output = "results/e1_biotriplex_train.json"
+hashed_inputs = { biotriplex_release = "../../archive_v1/experiments/biotriplex/data/splits.json" }
+
+[stats]
+n_resamples = 10000
+seed = 20261107
+level = 0.95
+
+[biotriplex]
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+pmid_map = "../../archive_v1/experiments/biotriplex/data/pmids.json"
+pubtator_dir = "../../archive_v1/experiments/biored/data/pubtator_full"
+splits = ["train"]
+
+[biored]
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Train", "Dev"]

@@ -1,0 +1,34 @@
+{
+  "backend_attempts": 699,
+  "backend_seconds": 6236.110866799543,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biotriplex",
+  "dispositions": {
+    "edge": 1257,
+    "failed": 143,
+    "negative_only": 23,
+    "no_assertion": 1407,
+    "not_assessed_no_cooccurrence": 10439,
+    "omitted_by_model": 23
+  },
+  "failed_calls": 24,
+  "form": "joint",
+  "level": "block",
+  "logical_requests": 699,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "ef_dev_biotriplex_gemma_joint.toml",
+    "config_sha256": "810d228f3bb92dd8804551d286d0907bc5bbfe51b23d83fe010c489996b5be14",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "gemma-4-12b",
+  "papers": 70,
+  "prompt_characters": 2141037,
+  "rejected_assertions": 0,
+  "response_characters": 952720,
+  "run_id": "ef_dev_biotriplex_gemma_joint",
+  "truncated_calls": 2
+}

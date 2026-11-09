@@ -1,0 +1,170 @@
+{
+  "complete_windows_diagnostic": {
+    "found_first": 331,
+    "found_second": 326,
+    "gold_exposures": 361,
+    "recall_first": 0.9168975069252078,
+    "recall_second": 0.9030470914127424,
+    "windows": 134,
+    "windows_complete_in_both": 134
+  },
+  "delta": 0.05,
+  "f1": {
+    "difference": {
+      "high": -0.021841006680645453,
+      "low": -0.07666902135678592,
+      "n_resamples": 10000,
+      "n_undefined": 0,
+      "n_units": 100,
+      "point": -0.049594210563561225
+    },
+    "first": 0.49494020239190434,
+    "reading": "second_higher_magnitude_unresolved",
+    "second": 0.5445344129554656
+  },
+  "first": "ef_dev_biored_qwen_pairwise",
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "compare_ef_dev_biored_qwen_pairwise_vs_chunked.toml",
+    "config_sha256": "968a9c7c33cfced25184c0da48c45dec8fee1064c69a03e49cb56635d45b483a",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "compare"
+  },
+  "papers": 100,
+  "precision": {
+    "difference": {
+      "high": -0.022839857766569147,
+      "low": -0.07497974656100609,
+      "n_resamples": 10000,
+      "n_undefined": 0,
+      "n_units": 100,
+      "point": -0.04825942772230579
+    },
+    "first": 0.33879093198992444,
+    "reading": "second_higher_magnitude_unresolved",
+    "second": 0.38705035971223023
+  },
+  "recall": {
+    "difference": {
+      "high": 0.05813953488372092,
+      "low": -0.05999999999999994,
+      "n_resamples": 10000,
+      "n_undefined": 0,
+      "n_units": 100,
+      "point": 0.0
+    },
+    "first": 0.9180887372013652,
+    "reading": "inconclusive",
+    "second": 0.9180887372013652
+  },
+  "second": "ef_dev_biored_qwen_chunked",
+  "strict_reading": {
+    "f1": {
+      "difference": {
+        "high": -0.021296829016572597,
+        "low": -0.07575176076589468,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 100,
+        "point": -0.04868187839325361
+      },
+      "first": 0.49585253456221196,
+      "reading": "second_higher_magnitude_unresolved",
+      "second": 0.5445344129554656
+    },
+    "precision": {
+      "difference": {
+        "high": -0.022450476088854962,
+        "low": -0.07379600006977527,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 100,
+        "point": -0.04740389506576559
+      },
+      "first": 0.33964646464646464,
+      "reading": "second_higher_magnitude_unresolved",
+      "second": 0.38705035971223023
+    },
+    "recall": {
+      "difference": {
+        "high": 0.05813953488372092,
+        "low": -0.05999999999999994,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 100,
+        "point": 0.0
+      },
+      "first": 0.9180887372013652,
+      "reading": "inconclusive",
+      "second": 0.9180887372013652
+    }
+  },
+  "view": "main",
+  "window_level": {
+    "gold_exposures_by_request_size": {
+      "first": {
+        "<=1": {
+          "found": 331,
+          "gold_exposures": 361
+        }
+      },
+      "second": {
+        "<=1": {
+          "found": 40,
+          "gold_exposures": 42
+        },
+        "<=15": {
+          "found": 203,
+          "gold_exposures": 227
+        },
+        "<=4": {
+          "found": 83,
+          "gold_exposures": 92
+        }
+      }
+    },
+    "gold_exposures_by_window_load": {
+      "<=1": {
+        "found_both": 34,
+        "found_first": 34,
+        "found_second": 34,
+        "gold_exposures": 36,
+        "only_first": 0,
+        "only_second": 0
+      },
+      "<=15": {
+        "found_both": 45,
+        "found_first": 46,
+        "found_second": 48,
+        "gold_exposures": 53,
+        "only_first": 1,
+        "only_second": 3
+      },
+      "<=4": {
+        "found_both": 69,
+        "found_first": 74,
+        "found_second": 71,
+        "gold_exposures": 78,
+        "only_first": 5,
+        "only_second": 2
+      },
+      "<=40": {
+        "found_both": 92,
+        "found_first": 98,
+        "found_second": 93,
+        "gold_exposures": 101,
+        "only_first": 6,
+        "only_second": 1
+      },
+      ">40": {
+        "found_both": 69,
+        "found_first": 79,
+        "found_second": 80,
+        "gold_exposures": 93,
+        "only_first": 10,
+        "only_second": 11
+      }
+    }
+  }
+}

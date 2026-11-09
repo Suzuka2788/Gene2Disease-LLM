@@ -1,0 +1,128 @@
+{
+ "note": "Qwen3.5-9B EF settings; windows whose calls truncated at 400+100, rerun at 800+200. Aggregates only.",
+ "windows": [
+  {
+   "run": "runs/f0_qwen_ef",
+   "condition": "ef_pairwise",
+   "dataset": "biored_dev",
+   "window_pairs": 12,
+   "budget": [
+    800,
+    200
+   ],
+   "untruncated_calls_same_pair_outcomes": 11,
+   "untruncated_calls_different_pair_outcomes": 0,
+   "gold": 5,
+   "gold_found_before": 2,
+   "gold_found_after": 3,
+   "pair_changes": {
+    "failed->edge": 1
+   },
+   "truncated_calls": [
+    {
+     "pairs": 1,
+     "old_max_tokens": 500,
+     "new_max_tokens": 1000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 726
+    }
+   ]
+  },
+  {
+   "run": "runs/f0_qwen_ef",
+   "condition": "ef_pairwise",
+   "dataset": "biotriplex_train",
+   "window_pairs": 14,
+   "budget": [
+    800,
+    200
+   ],
+   "untruncated_calls_same_pair_outcomes": 12,
+   "untruncated_calls_different_pair_outcomes": 0,
+   "gold": 6,
+   "gold_found_before": 4,
+   "gold_found_after": 6,
+   "pair_changes": {
+    "failed->edge": 2
+   },
+   "truncated_calls": [
+    {
+     "pairs": 1,
+     "old_max_tokens": 500,
+     "new_max_tokens": 1000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 645
+    },
+    {
+     "pairs": 1,
+     "old_max_tokens": 500,
+     "new_max_tokens": 1000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 573
+    }
+   ]
+  },
+  {
+   "run": "runs/f0_qwen_ef",
+   "condition": "ef_pairwise",
+   "dataset": "biotriplex_train",
+   "window_pairs": 18,
+   "budget": [
+    800,
+    200
+   ],
+   "untruncated_calls_same_pair_outcomes": 16,
+   "untruncated_calls_different_pair_outcomes": 0,
+   "gold": 12,
+   "gold_found_before": 9,
+   "gold_found_after": 11,
+   "pair_changes": {
+    "failed->edge": 2
+   },
+   "truncated_calls": [
+    {
+     "pairs": 1,
+     "old_max_tokens": 500,
+     "new_max_tokens": 1000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 653
+    },
+    {
+     "pairs": 1,
+     "old_max_tokens": 500,
+     "new_max_tokens": 1000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 649
+    }
+   ]
+  },
+  {
+   "run": "runs/f0_qwen_val",
+   "condition": "ef_joint",
+   "dataset": "biored_dev",
+   "window_pairs": 36,
+   "budget": [
+    800,
+    200
+   ],
+   "untruncated_calls_same_pair_outcomes": 0,
+   "untruncated_calls_different_pair_outcomes": 0,
+   "gold": 3,
+   "gold_found_before": 0,
+   "gold_found_after": 3,
+   "pair_changes": {
+    "failed->negative_only": 28,
+    "failed->edge": 8
+   },
+   "truncated_calls": [
+    {
+     "pairs": 36,
+     "old_max_tokens": 4000,
+     "new_max_tokens": 8000,
+     "new_outcome": "ok",
+     "new_completion_tokens": 4660
+    }
+   ]
+  }
+ ]
+}

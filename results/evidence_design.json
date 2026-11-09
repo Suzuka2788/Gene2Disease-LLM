@@ -1,0 +1,90 @@
+{
+  "corpora": {
+    "biored": {
+      "corpus": "biored",
+      "seed": 20261108,
+      "strata": {
+        "G": {
+          "N": 280,
+          "N_by_run": {
+            "e4_biored_gemma_joint": 232,
+            "e4_biored_gemma_pairwise": 268,
+            "e4_biored_qwen_joint": 197,
+            "e4_biored_qwen_pairwise": 260
+          },
+          "n": 6
+        },
+        "S1": {
+          "N": 326,
+          "N_by_run": {
+            "e4_biored_gemma_joint": 0,
+            "e4_biored_gemma_pairwise": 235,
+            "e4_biored_qwen_joint": 0,
+            "e4_biored_qwen_pairwise": 262
+          },
+          "n": 18
+        },
+        "S2": {
+          "N": 380,
+          "N_by_run": {
+            "e4_biored_gemma_joint": 207,
+            "e4_biored_gemma_pairwise": 331,
+            "e4_biored_qwen_joint": 287,
+            "e4_biored_qwen_pairwise": 329
+          },
+          "n": 16
+        }
+      }
+    },
+    "biotriplex": {
+      "corpus": "biotriplex",
+      "seed": 20261108,
+      "strata": {
+        "G": {
+          "N": 83,
+          "N_by_run": {
+            "e4_biotriplex_gemma_joint": 78,
+            "e4_biotriplex_gemma_pairwise": 81,
+            "e4_biotriplex_qwen_joint": 79,
+            "e4_biotriplex_qwen_pairwise": 83
+          },
+          "n": 6
+        },
+        "S1": {
+          "N": 82,
+          "N_by_run": {
+            "e4_biotriplex_gemma_joint": 0,
+            "e4_biotriplex_gemma_pairwise": 70,
+            "e4_biotriplex_qwen_joint": 0,
+            "e4_biotriplex_qwen_pairwise": 67
+          },
+          "n": 16
+        },
+        "S2": {
+          "N": 186,
+          "N_by_run": {
+            "e4_biotriplex_gemma_joint": 160,
+            "e4_biotriplex_gemma_pairwise": 168,
+            "e4_biotriplex_qwen_joint": 113,
+            "e4_biotriplex_qwen_pairwise": 151
+          },
+          "n": 14
+        }
+      }
+    }
+  },
+  "items": 76,
+  "plans": {
+    "biored": {
+      "G": 6,
+      "S1": 18,
+      "S2": 16
+    },
+    "biotriplex": {
+      "G": 6,
+      "S1": 16,
+      "S2": 14
+    }
+  },
+  "seed": 20261108
+}

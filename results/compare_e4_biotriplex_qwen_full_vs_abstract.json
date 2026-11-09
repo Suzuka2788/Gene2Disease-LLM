@@ -1,0 +1,51 @@
+{
+  "allowed_to_differ": [
+    "input_scope"
+  ],
+  "complete_windows_diagnostic": null,
+  "delta": 0.05,
+  "first": "e4_biotriplex_qwen_pairwise",
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+    "config": "compare_e4_biotriplex_qwen_full_vs_abstract.toml",
+    "config_sha256": "57718ab1db59a066711ab12e78dbc51b523417e817908819561417cd6bd51ac4",
+    "freeze_manifest": "configs/e4/frozen_manifest.json",
+    "freeze_manifest_sha256": "416b7809a3ec453f6d155df5dd4f2d459681f56b71c91df9eed59275bec54a05",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "compare"
+  },
+  "papers": 30,
+  "recall": {
+    "difference": {
+      "high": 0.6590991436100131,
+      "low": 0.42957520765619367,
+      "n_resamples": 10000,
+      "n_undefined": 0,
+      "n_units": 30,
+      "point": 0.5454545454545455
+    },
+    "first": 0.9675324675324676,
+    "reading": "first_meaningfully_higher",
+    "second": 0.42207792207792205
+  },
+  "second": "e4_biotriplex_qwen_pairwise_abstract",
+  "strict_reading": {
+    "recall": {
+      "difference": {
+        "high": 0.6666666666666667,
+        "low": 0.43333333333333335,
+        "n_resamples": 10000,
+        "n_undefined": 0,
+        "n_units": 30,
+        "point": 0.551948051948052
+      },
+      "first": 0.922077922077922,
+      "reading": "first_meaningfully_higher",
+      "second": 0.37012987012987014
+    }
+  },
+  "view": "main",
+  "window_level": null
+}

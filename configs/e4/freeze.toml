@@ -1,0 +1,53 @@
+# The E4 freeze. Running it writes configs/e4/frozen_manifest.json once; commit that
+# file before any E4 run. Usage: PYTHONPATH=src python -m gene2disease.cli run --config configs/e4/freeze.toml
+[run]
+stage = "freeze"
+output = "configs/e4/frozen_manifest.json"
+
+[freeze]
+configs = [
+  "configs/e4/e4_biored_qwen_pairwise.toml",
+  "configs/e4/e4_biored_qwen_chunked.toml",
+  "configs/e4/e4_biored_qwen_joint.toml",
+  "configs/e4/e4_biored_gemma_pairwise.toml",
+  "configs/e4/e4_biored_gemma_joint.toml",
+  "configs/e4/e4_biotriplex_qwen_pairwise.toml",
+  "configs/e4/e4_biotriplex_qwen_chunked.toml",
+  "configs/e4/e4_biotriplex_qwen_joint.toml",
+  "configs/e4/e4_biotriplex_gemma_pairwise.toml",
+  "configs/e4/e4_biotriplex_gemma_joint.toml",
+  "configs/e4/e4_biotriplex_qwen_pairwise_abstract.toml",
+  "configs/e4/e4_biotriplex_gemma_pairwise_abstract.toml",
+  "configs/e4/compare_e4_biored_qwen_pairwise_vs_joint.toml",
+  "configs/e4/compare_e4_biored_gemma_pairwise_vs_joint.toml",
+  "configs/e4/compare_e4_biotriplex_qwen_pairwise_vs_joint.toml",
+  "configs/e4/compare_e4_biotriplex_gemma_pairwise_vs_joint.toml",
+  "configs/e4/compare_e4_biored_qwen_pairwise_vs_chunked.toml",
+  "configs/e4/compare_e4_biotriplex_qwen_pairwise_vs_chunked.toml",
+  "configs/e4/compare_e4_biotriplex_qwen_full_vs_abstract.toml",
+  "configs/e4/compare_e4_biotriplex_gemma_full_vs_abstract.toml"
+]
+weights = [
+  "%LOCALAPPDATA%/gene2disease/downloads/Qwen3.5-9B-Q4_K_M.gguf",
+  "%LOCALAPPDATA%/gene2disease/downloads/gemma-4-12b-it-qat-q4_0.gguf",
+]
+scripts = ["scripts/run_ef_dev.py", "scripts/serve_local.ps1"]
+notes = "Protocol fixed on development data (EF_DEV_RESULTS.md, RESEARCH_PLAN.md D14-D18)."
+
+[freeze.protocol]
+estimand = "end-to-end relation-judgment performance under this protocol, output failures included (D18)"
+server_build = "b12182-fd27b2034"
+server = "llama.cpp llama-server, --ctx-size 32768 --parallel 1 --n-gpu-layers 99 --flash-attn on --reasoning off"
+models = ["qwen3.5-9b: Qwen3.5-9B-Q4_K_M.gguf", "gemma-4-12b: gemma-4-12b-it-qat-q4_0.gguf"]
+decoding = "temperature 0, thinking off, prompt cache off, one user message"
+output = "JSON for every form and both models; minimal instruction; paragraph-level passages"
+output_cap = "1000 + 150 x listed pairs"
+failures = "truncation, parse failure and context refusal (server error type exceed_context_size_error) are terminal outcomes of a request: no prediction, stored and replayed on resume; no repair or re-query"
+operational_failures = "server or transport errors stop the run before the affected paper is recorded; the run is resumed from the answer cache after the server is fixed, and every start is journaled"
+provider_block_retry = "exception to no re-query: the code retries a provider refusal once, identically; a second refusal is a terminal no-prediction outcome; the local server refused no request in development; any retry is reported"
+readings = "primary: canonical spellings; strict reading reported alongside as a descriptive sensitivity analysis"
+metrics = "micro recall on both corpora; precision and F1 on BioRED only; paper-level paired bootstrap, 10000 resamples, seed 20261107; delta 0.05 four-way reading on the interval of each comparison"
+primary_family = "canonical reading, pairwise minus joint: recall (BioRED, BioTriplex) and precision (BioRED), per model: 6 contrasts, Bonferroni interval level 1 - 0.05/6 = 0.99167"
+secondary = "descriptive: F1 at the level of its comparison config (0.99167 in pairwise-versus-joint configs); Qwen pairwise minus chunked and full text minus abstract (pairwise) at 0.95; strict-reading results; failure counts"
+no_changes_after_e4 = "no change of context size, chunking, format or any setting after E4 outcomes are seen"
+context_limit_check = "verified 2026-11-08 with synthetic prompts on this build and Qwen3.5-9B: a 34768-token prompt is refused with error type exceed_context_size_error; a 31868-token prompt stops generation at 32768 total tokens with finish_reason length (truncation), without context shifting"

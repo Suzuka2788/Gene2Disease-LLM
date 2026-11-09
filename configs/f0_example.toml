@@ -1,0 +1,25 @@
+# F0 template. Start the server first with
+#   scripts/serve_local.ps1 -Model qwen3.5-9b      (or gemma-4-12b)
+# and set model_id to the same name; the server reports it as its alias.
+# max_papers keeps the run small. No paid service can be reached: the backend refuses
+# anything that is not this machine.
+[run]
+stage = "judge"
+output = "results/f0_example.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[judge]
+run_id = "f0_example_joint"
+form = "joint"
+level = "block"
+base_url = "http://127.0.0.1:8081"
+model_id = "qwen3.5-9b"
+timeout_seconds = 600
+output_base_tokens = 200
+output_tokens_per_pair = 60
+max_papers = 5

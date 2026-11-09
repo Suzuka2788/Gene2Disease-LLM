@@ -1,0 +1,34 @@
+{
+  "backend_attempts": 134,
+  "backend_seconds": 1567.0937760999368,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biored",
+  "dispositions": {
+    "edge": 365,
+    "failed": 339,
+    "negative_only": 13,
+    "no_assertion": 487,
+    "not_assessed_no_cooccurrence": 18,
+    "omitted_by_model": 5
+  },
+  "failed_calls": 7,
+  "form": "joint",
+  "level": "block",
+  "logical_requests": 134,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "ef_dev_biored_gemma_joint.toml",
+    "config_sha256": "b403d725249fef18f9d24de283f73e7f287f42296ba3db0a3843947c53f86a54",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "gemma-4-12b",
+  "papers": 100,
+  "prompt_characters": 425984,
+  "rejected_assertions": 23,
+  "response_characters": 211037,
+  "run_id": "ef_dev_biored_gemma_joint",
+  "truncated_calls": 0
+}

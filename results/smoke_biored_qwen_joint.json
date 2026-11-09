@@ -1,0 +1,31 @@
+{
+  "backend_attempts": 4,
+  "backend_seconds": 33.100748200013186,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "dataset": "biored",
+  "dispositions": {
+    "edge": 16,
+    "no_assertion": 16,
+    "not_assessed_no_cooccurrence": 2
+  },
+  "failed_calls": 0,
+  "form": "joint",
+  "level": "block",
+  "logical_requests": 4,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "smoke_biored_qwen_joint.toml",
+    "config_sha256": "860340246defd447ed93387bdd857944d1ae233bf5d1d58eb9a31fb8174808e3",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "qwen3.5-9b",
+  "papers": 3,
+  "prompt_characters": 13421,
+  "rejected_assertions": 0,
+  "response_characters": 5055,
+  "run_id": "smoke_biored_qwen_joint",
+  "truncated_calls": 0
+}

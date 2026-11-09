@@ -1,0 +1,27 @@
+# Not run yet. EF on development data (plan section 11). Settings frozen by the user on
+# 2026-11-07: D14 JSON, D15 thinking off, D16 prompt cache off, output budget
+# 1000 + 150 x pairs (F0_REPORT.md section 10.4a).
+# Start the server first: scripts/serve_local.ps1 -Model qwen3.5-9b
+[run]
+stage = "judge"
+output = "results/ef_dev_biotriplex_qwen_pairwise.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[judge]
+run_id = "ef_dev_biotriplex_qwen_pairwise"
+form = "pairwise"
+level = "block"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+model_id = "qwen3.5-9b"
+timeout_seconds = 900
+output_format = "json"
+thinking = false
+cache_prompt = false
+output_base_tokens = 1000
+output_tokens_per_pair = 150

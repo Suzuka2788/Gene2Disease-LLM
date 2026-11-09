@@ -1,0 +1,37 @@
+{
+  "backend_attempts": 1785,
+  "backend_seconds": 3887.9952381993935,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "context_refused_calls": 0,
+  "dataset": "biotriplex",
+  "dispositions": {
+    "edge": 587,
+    "negative_only": 3,
+    "no_assertion": 308,
+    "not_assessed_no_cooccurrence": 4901,
+    "omitted_by_model": 6
+  },
+  "failed_calls": 2,
+  "form": "pairwise",
+  "level": "block",
+  "logical_requests": 1785,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+    "config": "e4_biotriplex_gemma_pairwise.toml",
+    "config_sha256": "45714274e4b5f0174dba7608c35235e67009515942bd2ed3c97cc48b784cc6f6",
+    "freeze_manifest": "configs/e4/frozen_manifest.json",
+    "freeze_manifest_sha256": "416b7809a3ec453f6d155df5dd4f2d459681f56b71c91df9eed59275bec54a05",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "gemma-4-12b",
+  "papers": 30,
+  "prompt_characters": 5395525,
+  "rejected_assertions": 9,
+  "response_characters": 491081,
+  "run_id": "e4_biotriplex_gemma_pairwise",
+  "truncated_calls": 1
+}

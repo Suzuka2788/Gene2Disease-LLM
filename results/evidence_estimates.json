@@ -1,0 +1,573 @@
+{
+  "H_E2_pooled_both_corpora_any": {
+    "gap": 0.13288288288288289,
+    "item_bootstrap95": [
+      0.05855855855855856,
+      0.22072072072072071
+    ],
+    "items": 37,
+    "wilson95": [
+      0.05773106930535407,
+      0.27709517218772706
+    ]
+  },
+  "corpora": {
+    "biored": {
+      "BioRED_TP_FP": {
+        "e4_biored_gemma_joint": {
+          "FP": 207,
+          "TP": 232
+        },
+        "e4_biored_gemma_pairwise": {
+          "FP": 566,
+          "TP": 268
+        },
+        "e4_biored_qwen_joint": {
+          "FP": 287,
+          "TP": 197
+        },
+        "e4_biored_qwen_pairwise": {
+          "FP": 591,
+          "TP": 260
+        }
+      },
+      "H_E1_S1_minus_S2": {
+        "difference": -0.3263888888888889,
+        "high": -0.034089616504119125,
+        "low": -0.5665686081574198
+      },
+      "H_E1_S1_minus_S2_without_fpc": {
+        "difference": -0.3263888888888889,
+        "high": -0.026910029763908605,
+        "low": -0.5706097183183362
+      },
+      "H_E2_all": {
+        "by_run": {
+          "e4_biored_gemma_joint": {
+            "gap": 0.0,
+            "units": 9,
+            "wilson95": [
+              0.0,
+              0.2991450484195441
+            ]
+          },
+          "e4_biored_gemma_pairwise": {
+            "gap": 0.07692307692307693,
+            "units": 13,
+            "wilson95": [
+              0.013710421242556586,
+              0.3331395092109959
+            ]
+          },
+          "e4_biored_qwen_joint": {
+            "gap": 0.0,
+            "units": 7,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.35433043506668743
+            ]
+          },
+          "e4_biored_qwen_pairwise": {
+            "gap": 0.09090909090909091,
+            "units": 11,
+            "wilson95": [
+              0.016232172885884855,
+              0.37735843645159567
+            ]
+          }
+        },
+        "left_out_undecided": 0,
+        "pooled_item_weighted": {
+          "gap": 0.10714285714285714,
+          "item_bootstrap95": [
+            0.0,
+            0.2857142857142857
+          ],
+          "items": 14,
+          "wilson95": [
+            0.025139354456372665,
+            0.35831913340891264
+          ]
+        },
+        "rule": "all"
+      },
+      "H_E2_any": {
+        "by_run": {
+          "e4_biored_gemma_joint": {
+            "gap": 0.0,
+            "units": 9,
+            "wilson95": [
+              0.0,
+              0.2991450484195441
+            ]
+          },
+          "e4_biored_gemma_pairwise": {
+            "gap": 0.07692307692307693,
+            "units": 13,
+            "wilson95": [
+              0.013710421242556586,
+              0.3331395092109959
+            ]
+          },
+          "e4_biored_qwen_joint": {
+            "gap": 0.0,
+            "units": 7,
+            "wilson95": [
+              5.551115123125783e-17,
+              0.35433043506668743
+            ]
+          },
+          "e4_biored_qwen_pairwise": {
+            "gap": 0.09090909090909091,
+            "units": 11,
+            "wilson95": [
+              0.016232172885884855,
+              0.37735843645159567
+            ]
+          }
+        },
+        "left_out_undecided": 0,
+        "pooled_item_weighted": {
+          "gap": 0.10714285714285714,
+          "item_bootstrap95": [
+            0.0,
+            0.2857142857142857
+          ],
+          "items": 14,
+          "wilson95": [
+            0.025139354456372665,
+            0.35831913340891264
+          ]
+        },
+        "rule": "any"
+      },
+      "run_sample_counts": {
+        "e4_biored_gemma_joint": {
+          "S1": 0,
+          "S2": 9
+        },
+        "e4_biored_gemma_pairwise": {
+          "S1": 13,
+          "S2": 13
+        },
+        "e4_biored_qwen_joint": {
+          "S1": 0,
+          "S2": 13
+        },
+        "e4_biored_qwen_pairwise": {
+          "S1": 13,
+          "S2": 12
+        }
+      },
+      "runs": {
+        "adjusted_precision:e4_biored_gemma_joint": {
+          "percentile95": [
+            0.6332574031890661,
+            0.9410592255125285
+          ],
+          "point": 0.7904328018223234,
+          "undefined_resamples": 0
+        },
+        "adjusted_precision:e4_biored_gemma_pairwise": {
+          "percentile95": [
+            0.42958166991704866,
+            0.6718612042184434
+          ],
+          "point": 0.54786939679026,
+          "undefined_resamples": 0
+        },
+        "adjusted_precision:e4_biored_qwen_joint": {
+          "percentile95": [
+            0.49173553719008267,
+            0.8023415977961433
+          ],
+          "point": 0.6350921805467259,
+          "undefined_resamples": 0
+        },
+        "adjusted_precision:e4_biored_qwen_pairwise": {
+          "percentile95": [
+            0.3758145497275932,
+            0.6131182565965174
+          ],
+          "point": 0.4902904576817621,
+          "undefined_resamples": 0
+        },
+        "difference:gemma pairwise minus joint": {
+          "percentile95": [
+            -0.47117412089530014,
+            0.015803670527058146
+          ],
+          "point": -0.22176920056778715,
+          "undefined_resamples": 0
+        },
+        "difference:qwen pairwise minus joint": {
+          "percentile95": [
+            -0.2586012408347434,
+            0.013656635242929436
+          ],
+          "point": -0.11856262744587615,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biored_gemma_joint": {
+          "percentile95": [
+            0.2222222222222222,
+            0.875
+          ],
+          "point": 0.5555555555555556,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biored_gemma_pairwise": {
+          "percentile95": [
+            0.15948959842900814,
+            0.5164880641663988
+          ],
+          "point": 0.33378635498776843,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biored_qwen_joint": {
+          "percentile95": [
+            0.14285714285714285,
+            0.6666666666666667
+          ],
+          "point": 0.38461538461538464,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biored_qwen_pairwise": {
+          "percentile95": [
+            0.10121519766189817,
+            0.4429164743885556
+          ],
+          "point": 0.2660527571695085,
+          "undefined_resamples": 0
+        }
+      },
+      "strata": {
+        "G": {
+          "N": 280,
+          "codes": {
+            "no_relation": 1,
+            "supported": 5
+          },
+          "n": 6,
+          "primary": {
+            "proportion": 0.8333333333333334,
+            "wilson95": [
+              0.4397476830018651,
+              0.9695593250548129
+            ],
+            "wilson95_without_fpc": [
+              0.43649717781352987,
+              0.9699466302516935
+            ]
+          },
+          "supported": 5,
+          "undecided_as_supported": 0.8333333333333334,
+          "undecided_excluded": 0.8333333333333334
+        },
+        "S1": {
+          "N": 326,
+          "codes": {
+            "no_relation": 16,
+            "supported": 2
+          },
+          "n": 18,
+          "primary": {
+            "proportion": 0.1111111111111111,
+            "wilson95": [
+              0.031981688477752596,
+              0.3210837938008475
+            ],
+            "wilson95_without_fpc": [
+              0.03101952264561239,
+              0.32799765130178804
+            ]
+          },
+          "supported": 2,
+          "undecided_as_supported": 0.1111111111111111,
+          "undecided_excluded": 0.1111111111111111
+        },
+        "S2": {
+          "N": 380,
+          "codes": {
+            "no_relation": 8,
+            "speculative": 1,
+            "supported": 7
+          },
+          "n": 16,
+          "primary": {
+            "proportion": 0.4375,
+            "wilson95": [
+              0.23415217689697018,
+              0.6642704390382963
+            ],
+            "wilson95_without_fpc": [
+              0.23098652405492354,
+              0.6682144360118811
+            ]
+          },
+          "supported": 7,
+          "undecided_as_supported": 0.4375,
+          "undecided_excluded": 0.4375
+        }
+      }
+    },
+    "biotriplex": {
+      "H_E1_S1_minus_S2": {
+        "difference": 0.1875,
+        "high": 0.4635295033887733,
+        "low": -0.12794624587213155
+      },
+      "H_E1_S1_minus_S2_without_fpc": {
+        "difference": 0.1875,
+        "high": 0.4756295544460905,
+        "low": -0.1488015606067738
+      },
+      "H_E2_all": {
+        "by_run": {
+          "e4_biotriplex_gemma_joint": {
+            "gap": 0.3,
+            "units": 10,
+            "wilson95": [
+              0.10779126740630099,
+              0.6032218525388546
+            ]
+          },
+          "e4_biotriplex_gemma_pairwise": {
+            "gap": 0.17391304347826086,
+            "units": 23,
+            "wilson95": [
+              0.06978653563062565,
+              0.3713764764022614
+            ]
+          },
+          "e4_biotriplex_qwen_joint": {
+            "gap": 0.25,
+            "units": 8,
+            "wilson95": [
+              0.071479212752109,
+              0.5907245696898311
+            ]
+          },
+          "e4_biotriplex_qwen_pairwise": {
+            "gap": 0.45454545454545453,
+            "units": 22,
+            "wilson95": [
+              0.2692029418081331,
+              0.6534020467926505
+            ]
+          }
+        },
+        "left_out_undecided": 0,
+        "pooled_item_weighted": {
+          "gap": 0.3007246376811594,
+          "item_bootstrap95": [
+            0.17028985507246377,
+            0.4384057971014493
+          ],
+          "items": 23,
+          "wilson95": [
+            0.15343394027493562,
+            0.5050545670784954
+          ]
+        },
+        "rule": "all"
+      },
+      "H_E2_any": {
+        "by_run": {
+          "e4_biotriplex_gemma_joint": {
+            "gap": 0.1,
+            "units": 10,
+            "wilson95": [
+              0.017876213095072896,
+              0.4041500267952385
+            ]
+          },
+          "e4_biotriplex_gemma_pairwise": {
+            "gap": 0.13043478260869565,
+            "units": 23,
+            "wilson95": [
+              0.04537659093631238,
+              0.32127482270095964
+            ]
+          },
+          "e4_biotriplex_qwen_joint": {
+            "gap": 0.0,
+            "units": 8,
+            "wilson95": [
+              0.0,
+              0.32440756488388023
+            ]
+          },
+          "e4_biotriplex_qwen_pairwise": {
+            "gap": 0.18181818181818182,
+            "units": 22,
+            "wilson95": [
+              0.07306884583422052,
+              0.38516607437126543
+            ]
+          }
+        },
+        "left_out_undecided": 0,
+        "pooled_item_weighted": {
+          "gap": 0.14855072463768115,
+          "item_bootstrap95": [
+            0.05434782608695652,
+            0.2463768115942029
+          ],
+          "items": 23,
+          "wilson95": [
+            0.05521125389561732,
+            0.342486659073161
+          ]
+        },
+        "rule": "any"
+      },
+      "run_sample_counts": {
+        "e4_biotriplex_gemma_joint": {
+          "S1": 0,
+          "S2": 13
+        },
+        "e4_biotriplex_gemma_pairwise": {
+          "S1": 13,
+          "S2": 14
+        },
+        "e4_biotriplex_qwen_joint": {
+          "S1": 0,
+          "S2": 6
+        },
+        "e4_biotriplex_qwen_pairwise": {
+          "S1": 15,
+          "S2": 12
+        }
+      },
+      "runs": {
+        "difference:gemma pairwise minus joint": {
+          "percentile95": [
+            0.021008403361344574,
+            0.2729726890756302
+          ],
+          "point": 0.14027149321266968,
+          "undefined_resamples": 0
+        },
+        "difference:qwen pairwise minus joint": {
+          "percentile95": [
+            -0.4423738532110092,
+            0.2322583990932614
+          ],
+          "point": -0.09495412844036699,
+          "undefined_resamples": 7
+        },
+        "rate:e4_biotriplex_gemma_joint": {
+          "percentile95": [
+            0.18181818181818182,
+            0.7272727272727273
+          ],
+          "point": 0.4615384615384615,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biotriplex_gemma_pairwise": {
+          "percentile95": [
+            0.41047188106011634,
+            0.7983193277310925
+          ],
+          "point": 0.6018099547511312,
+          "undefined_resamples": 0
+        },
+        "rate:e4_biotriplex_qwen_joint": {
+          "percentile95": [
+            0.25,
+            1.0
+          ],
+          "point": 0.6666666666666666,
+          "undefined_resamples": 7
+        },
+        "rate:e4_biotriplex_qwen_pairwise": {
+          "percentile95": [
+            0.3623845191505742,
+            0.7795518701482004
+          ],
+          "point": 0.5717125382262996,
+          "undefined_resamples": 0
+        }
+      },
+      "strata": {
+        "G": {
+          "N": 83,
+          "codes": {
+            "speculative": 1,
+            "supported": 5
+          },
+          "n": 6,
+          "primary": {
+            "proportion": 0.8333333333333334,
+            "wilson95": [
+              0.44776780765572705,
+              0.9685855736164808
+            ],
+            "wilson95_without_fpc": [
+              0.43649717781352987,
+              0.9699466302516935
+            ]
+          },
+          "supported": 5,
+          "undecided_as_supported": 0.8333333333333334,
+          "undecided_excluded": 0.8333333333333334
+        },
+        "S1": {
+          "N": 82,
+          "codes": {
+            "negative": 1,
+            "no_relation": 2,
+            "speculative": 2,
+            "supported": 11
+          },
+          "n": 16,
+          "primary": {
+            "proportion": 0.6875,
+            "wilson95": [
+              0.46683666634248855,
+              0.84680555397436
+            ],
+            "wilson95_without_fpc": [
+              0.44404355834740666,
+              0.8583535614521796
+            ]
+          },
+          "supported": 11,
+          "undecided_as_supported": 0.6875,
+          "undecided_excluded": 0.6875
+        },
+        "S2": {
+          "N": 186,
+          "codes": {
+            "no_relation": 5,
+            "speculative": 2,
+            "supported": 7
+          },
+          "n": 14,
+          "primary": {
+            "proportion": 0.5,
+            "wilson95": [
+              0.27458033090705,
+              0.72541966909295
+            ],
+            "wilson95_without_fpc": [
+              0.26799202452413634,
+              0.7320079754758637
+            ]
+          },
+          "supported": 7,
+          "undecided_as_supported": 0.5,
+          "undecided_excluded": 0.5
+        }
+      }
+    }
+  },
+  "implementation_notes": [
+    "Finite population correction in Wilson intervals: the sample size is replaced by the effective size n(N-1)/(N-n); when the whole stratum is sampled (n = N) the interval collapses to the point estimate.",
+    "Newcombe difference intervals use the hybrid score method on the corrected Wilson limits of the two strata.",
+    "Bootstrap percentile intervals use linear interpolation between order statistics; a resample in which a run has no item in a stratum where it has edges is undefined for that run and is dropped; the number dropped is reported.",
+    "H-E2 pooled proportion: each item weighs one; its value is the mean over its runs; the Wilson interval for the pooled value uses the number of items."
+  ],
+  "protocol": "annotation/EVIDENCE_PROTOCOL.md"
+}

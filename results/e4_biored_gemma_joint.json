@@ -1,0 +1,38 @@
+{
+  "backend_attempts": 133,
+  "backend_seconds": 1773.7784546000767,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "context_refused_calls": 0,
+  "dataset": "biored",
+  "dispositions": {
+    "edge": 439,
+    "failed": 257,
+    "negative_only": 23,
+    "no_assertion": 511,
+    "not_assessed_no_cooccurrence": 24,
+    "omitted_by_model": 9
+  },
+  "failed_calls": 11,
+  "form": "joint",
+  "level": "block",
+  "logical_requests": 133,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+    "config": "e4_biored_gemma_joint.toml",
+    "config_sha256": "9f1f1e8fa1d3c393dff1c4086cc9b7b75de2f793e02e44782f020bc543d271d9",
+    "freeze_manifest": "configs/e4/frozen_manifest.json",
+    "freeze_manifest_sha256": "416b7809a3ec453f6d155df5dd4f2d459681f56b71c91df9eed59275bec54a05",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "gemma-4-12b",
+  "papers": 100,
+  "prompt_characters": 427079,
+  "rejected_assertions": 57,
+  "response_characters": 232285,
+  "run_id": "e4_biored_gemma_joint",
+  "truncated_calls": 0
+}

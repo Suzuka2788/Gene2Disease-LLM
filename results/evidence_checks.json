@@ -1,0 +1,97 @@
+{
+  "A": {
+    "e4_biored_gemma_joint": {
+      "both_entities_in_cited_sentences": 322,
+      "positive_assertions": 565,
+      "rejected_assertions": 57,
+      "share": 0.5699115044247788
+    },
+    "e4_biored_gemma_pairwise": {
+      "both_entities_in_cited_sentences": 473,
+      "positive_assertions": 1079,
+      "rejected_assertions": 1,
+      "share": 0.43836886005560705
+    },
+    "e4_biored_qwen_chunked": {
+      "both_entities_in_cited_sentences": 344,
+      "positive_assertions": 750,
+      "rejected_assertions": 1,
+      "share": 0.45866666666666667
+    },
+    "e4_biored_qwen_joint": {
+      "both_entities_in_cited_sentences": 281,
+      "positive_assertions": 560,
+      "rejected_assertions": 0,
+      "share": 0.5017857142857143
+    },
+    "e4_biored_qwen_pairwise": {
+      "both_entities_in_cited_sentences": 464,
+      "positive_assertions": 1046,
+      "rejected_assertions": 4,
+      "share": 0.4435946462715105
+    },
+    "e4_biotriplex_gemma_joint": {
+      "both_entities_in_cited_sentences": 789,
+      "positive_assertions": 1358,
+      "rejected_assertions": 30,
+      "share": 0.5810014727540501
+    },
+    "e4_biotriplex_gemma_pairwise": {
+      "both_entities_in_cited_sentences": 893,
+      "positive_assertions": 1792,
+      "rejected_assertions": 9,
+      "share": 0.49832589285714285
+    },
+    "e4_biotriplex_qwen_chunked": {
+      "both_entities_in_cited_sentences": 701,
+      "positive_assertions": 1178,
+      "rejected_assertions": 18,
+      "share": 0.5950764006791172
+    },
+    "e4_biotriplex_qwen_joint": {
+      "both_entities_in_cited_sentences": 664,
+      "positive_assertions": 1088,
+      "rejected_assertions": 15,
+      "share": 0.6102941176470589
+    },
+    "e4_biotriplex_qwen_pairwise": {
+      "both_entities_in_cited_sentences": 812,
+      "positive_assertions": 1575,
+      "rejected_assertions": 16,
+      "share": 0.5155555555555555
+    }
+  },
+  "B": {
+    "e4_biotriplex_gemma_joint": {
+      "gold_edges_with_trigger": 78,
+      "gold_edges_without_trigger_position": 0,
+      "overlapping": 77,
+      "share": 0.9871794871794872
+    },
+    "e4_biotriplex_gemma_pairwise": {
+      "gold_edges_with_trigger": 81,
+      "gold_edges_without_trigger_position": 0,
+      "overlapping": 80,
+      "share": 0.9876543209876543
+    },
+    "e4_biotriplex_qwen_chunked": {
+      "gold_edges_with_trigger": 83,
+      "gold_edges_without_trigger_position": 0,
+      "overlapping": 80,
+      "share": 0.963855421686747
+    },
+    "e4_biotriplex_qwen_joint": {
+      "gold_edges_with_trigger": 79,
+      "gold_edges_without_trigger_position": 0,
+      "overlapping": 73,
+      "share": 0.9240506329113924
+    },
+    "e4_biotriplex_qwen_pairwise": {
+      "gold_edges_with_trigger": 83,
+      "gold_edges_without_trigger_position": 0,
+      "overlapping": 78,
+      "share": 0.9397590361445783
+    }
+  },
+  "protocol": "annotation/EVIDENCE_PROTOCOL.md"
+}

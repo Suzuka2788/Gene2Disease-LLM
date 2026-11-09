@@ -1,0 +1,20 @@
+# Restricted or per-paper content. Never commit these.
+data/
+runs/
+deliverables/
+vendor/
+annotation/sheets/
+*.xml
+*.BioC.JSON
+*.PubTator
+.env
+*.key
+
+# Local tooling
+.aris/
+__pycache__/
+*.pyc
+.venv/
+
+# Third-party papers (copyrighted); read locally only
+literature/sources/

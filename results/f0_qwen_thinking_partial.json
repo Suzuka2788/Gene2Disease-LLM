@@ -1,0 +1,14 @@
+{
+  "condition": "json_joint_subset_thinking",
+  "stopped_early": true,
+  "calls_measured": 8,
+  "finish_reasons": {
+    "stop": 1,
+    "length": 7
+  },
+  "wall_seconds_per_call_mean": 78.7512276749967,
+  "completion_tokens_per_call_mean": 5195.25,
+  "reasoning_characters_per_call_mean": 18479.875,
+  "budget": "400 + 100 x pairs + 4096 extra",
+  "note": "Stopped after 8 of about 21 windows; quality not compared."
+}

@@ -1,0 +1,413 @@
+{
+  "biored_development_gold_entities": {
+    "all_pairs": 1227,
+    "levels": {
+      "adjacent": {
+        "candidate_pairs": 661,
+        "joint_calls": 431,
+        "joint_passage_tokens_estimated": 33435.0,
+        "pairs_per_window": {
+          "max": 40,
+          "min": 1,
+          "p50": 2.0,
+          "p90": 6.0
+        },
+        "pairwise_calls": 1439,
+        "pairwise_capped_calls": 1209,
+        "pairwise_capped_passage_tokens_estimated": 112681.75,
+        "pairwise_passage_tokens_estimated": 132114.5,
+        "window_passage_tokens_estimated": {
+          "max": 200.75,
+          "min": 16.5,
+          "p50": 75.5,
+          "p90": 113.0
+        }
+      },
+      "block": {
+        "candidate_pairs": 1209,
+        "joint_calls": 134,
+        "joint_passage_tokens_estimated": 34647.0,
+        "pairs_per_window": {
+          "max": 84,
+          "min": 1,
+          "p50": 3.0,
+          "p90": 24.700000000000003
+        },
+        "pairwise_calls": 1293,
+        "pairwise_capped_calls": 1293,
+        "pairwise_capped_passage_tokens_estimated": 534084.75,
+        "pairwise_passage_tokens_estimated": 534084.75,
+        "window_passage_tokens_estimated": {
+          "max": 698.5,
+          "min": 16.5,
+          "p50": 327.625,
+          "p90": 485.35
+        }
+      },
+      "document": {
+        "candidate_pairs": 1227,
+        "joint_calls": 82,
+        "joint_passage_tokens_estimated": 35481.5,
+        "pairs_per_window": {
+          "max": 84,
+          "min": 1,
+          "p50": 7.0,
+          "p90": 37.80000000000001
+        },
+        "pairwise_calls": 1227,
+        "pairwise_capped_calls": 1227,
+        "pairwise_capped_passage_tokens_estimated": 575928.5,
+        "pairwise_passage_tokens_estimated": 575928.5,
+        "window_passage_tokens_estimated": {
+          "max": 718.5,
+          "min": 175.5,
+          "p50": 441.875,
+          "p90": 530.3000000000001
+        }
+      },
+      "section": {
+        "candidate_pairs": 1227,
+        "joint_calls": 82,
+        "joint_passage_tokens_estimated": 35481.5,
+        "pairs_per_window": {
+          "max": 84,
+          "min": 1,
+          "p50": 7.0,
+          "p90": 37.80000000000001
+        },
+        "pairwise_calls": 1227,
+        "pairwise_capped_calls": 1227,
+        "pairwise_capped_passage_tokens_estimated": 575928.5,
+        "pairwise_passage_tokens_estimated": 575928.5,
+        "window_passage_tokens_estimated": {
+          "max": 718.5,
+          "min": 175.5,
+          "p50": 441.875,
+          "p90": 530.3000000000001
+        }
+      },
+      "sentence": {
+        "candidate_pairs": 421,
+        "joint_calls": 295,
+        "joint_passage_tokens_estimated": 12944.0,
+        "pairs_per_window": {
+          "max": 40,
+          "min": 1,
+          "p50": 1.0,
+          "p90": 4.0
+        },
+        "pairwise_calls": 682,
+        "pairwise_capped_calls": 602,
+        "pairwise_capped_passage_tokens_estimated": 34724.25,
+        "pairwise_passage_tokens_estimated": 38544.25,
+        "window_passage_tokens_estimated": {
+          "max": 163.0,
+          "min": 14.25,
+          "p50": 40.25,
+          "p90": 66.9
+        }
+      }
+    },
+    "pairs_per_paper": {
+      "max": 84,
+      "min": 0,
+      "p50": 4.5,
+      "p90": 32.400000000000034
+    },
+    "paper_passage_tokens_estimated": {
+      "max": 718.5,
+      "min": 175.5,
+      "p50": 441.875,
+      "p90": 541.0500000000001
+    },
+    "papers": 100,
+    "papers_without_pairs": 18
+  },
+  "biotriplex_development_gold_entities": {
+    "all_pairs": 13292,
+    "levels": {
+      "adjacent": {
+        "candidate_pairs": 1707,
+        "joint_calls": 1765,
+        "joint_passage_tokens_estimated": 151319.5,
+        "pairs_per_window": {
+          "max": 63,
+          "min": 1,
+          "p50": 2.0,
+          "p90": 6.0
+        },
+        "pairwise_calls": 5012,
+        "pairwise_capped_calls": 3021,
+        "pairwise_capped_passage_tokens_estimated": 326174.25,
+        "pairwise_passage_tokens_estimated": 500775.0,
+        "window_passage_tokens_estimated": {
+          "max": 467.0,
+          "min": 6.75,
+          "p50": 82.5,
+          "p90": 123.65000000000003
+        }
+      },
+      "block": {
+        "candidate_pairs": 2853,
+        "joint_calls": 699,
+        "joint_passage_tokens_estimated": 200655.5,
+        "pairs_per_window": {
+          "max": 144,
+          "min": 1,
+          "p50": 3.0,
+          "p90": 15.0
+        },
+        "pairwise_calls": 4591,
+        "pairwise_capped_calls": 3787,
+        "pairwise_capped_passage_tokens_estimated": 1527612.0,
+        "pairwise_passage_tokens_estimated": 1758815.5,
+        "window_passage_tokens_estimated": {
+          "max": 1503.5,
+          "min": 6.75,
+          "p50": 263.25,
+          "p90": 529.7500000000001
+        }
+      },
+      "document": {
+        "candidate_pairs": 13292,
+        "joint_calls": 65,
+        "joint_passage_tokens_estimated": 554095.0,
+        "pairs_per_window": {
+          "max": 3502,
+          "min": 2,
+          "p50": 88.0,
+          "p90": 418.8000000000001
+        },
+        "pairwise_calls": 13292,
+        "pairwise_capped_calls": 13292,
+        "pairwise_capped_passage_tokens_estimated": 121329441.0,
+        "pairwise_passage_tokens_estimated": 121329441.0,
+        "window_passage_tokens_estimated": {
+          "max": 18394.5,
+          "min": 2631.25,
+          "p50": 8322.25,
+          "p90": 12236.95
+        }
+      },
+      "section": {
+        "candidate_pairs": 8470,
+        "joint_calls": 277,
+        "joint_passage_tokens_estimated": 457747.0,
+        "pairs_per_window": {
+          "max": 3072,
+          "min": 1,
+          "p50": 12.0,
+          "p90": 60.80000000000001
+        },
+        "pairwise_calls": 10228,
+        "pairwise_capped_calls": 9940,
+        "pairwise_capped_passage_tokens_estimated": 43594188.25,
+        "pairwise_passage_tokens_estimated": 43914041.0,
+        "window_passage_tokens_estimated": {
+          "max": 9053.25,
+          "min": 39.75,
+          "p50": 1214.75,
+          "p90": 3590.35
+        }
+      },
+      "sentence": {
+        "candidate_pairs": 945,
+        "joint_calls": 1170,
+        "joint_passage_tokens_estimated": 55088.0,
+        "pairs_per_window": {
+          "max": 35,
+          "min": 1,
+          "p50": 1.0,
+          "p90": 4.0
+        },
+        "pairwise_calls": 2301,
+        "pairwise_capped_calls": 1413,
+        "pairwise_capped_passage_tokens_estimated": 86412.25,
+        "pairwise_passage_tokens_estimated": 127787.25,
+        "window_passage_tokens_estimated": {
+          "max": 427.25,
+          "min": 6.75,
+          "p50": 43.5,
+          "p90": 71.02500000000003
+        }
+      }
+    },
+    "pairs_per_paper": {
+      "max": 3502,
+      "min": 0,
+      "p50": 80.5,
+      "p90": 379.8000000000001
+    },
+    "paper_passage_tokens_estimated": {
+      "max": 18394.5,
+      "min": 2087.75,
+      "p50": 8082.25,
+      "p90": 12409.400000000001
+    },
+    "papers": 70,
+    "papers_without_pairs": 5
+  },
+  "chars_per_token_assumed": 4.0,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "workload.toml",
+    "config_sha256": "1a23dd5573c90cca31dd74a850a02cd01e292a2a3f3fa0100559bd1a9f29c06e",
+    "inputs_sha256": {
+      "biotriplex_release": "97a1d2b29ac8282a4924647421d0c48e476d509babf44e9364f46932a2a575aa"
+    },
+    "python": "3.13.7",
+    "stage": "workload"
+  },
+  "pubtator_alignment": {
+    "aligned": 23443,
+    "complete": true,
+    "excluded_without_annotation": 0,
+    "expected_papers": 100,
+    "ineligible_entities": 0,
+    "unaligned": 2481,
+    "unaligned_by_section": {
+      "ABBR": 43,
+      "ABSTRACT": 42,
+      "ACK_FUND": 9,
+      "AUTH_CONT": 23,
+      "CASE": 2,
+      "COMP_INT": 22,
+      "CONCL": 22,
+      "DISCUSS": 242,
+      "FIG": 367,
+      "INTRO": 258,
+      "METHODS": 89,
+      "RESULTS": 363,
+      "REVIEW_INFO": 126,
+      "SUPPL": 21,
+      "TABLE": 832,
+      "TITLE": 4,
+      "other": 16
+    }
+  },
+  "task_papers_pubtator_entities": {
+    "all_pairs": 55959,
+    "levels": {
+      "adjacent": {
+        "candidate_pairs": 4473,
+        "joint_calls": 2549,
+        "joint_passage_tokens_estimated": 232981.75,
+        "pairs_per_window": {
+          "max": 105,
+          "min": 1,
+          "p50": 2.0,
+          "p90": 8.0
+        },
+        "pairwise_calls": 9771,
+        "pairwise_capped_calls": 7321,
+        "pairwise_capped_passage_tokens_estimated": 789556.5,
+        "pairwise_passage_tokens_estimated": 1026070.25,
+        "window_passage_tokens_estimated": {
+          "max": 356.25,
+          "min": 11.25,
+          "p50": 86.5,
+          "p90": 135.75
+        }
+      },
+      "block": {
+        "candidate_pairs": 7229,
+        "joint_calls": 1140,
+        "joint_passage_tokens_estimated": 282254.5,
+        "pairs_per_window": {
+          "max": 240,
+          "min": 1,
+          "p50": 4.0,
+          "p90": 20.0
+        },
+        "pairwise_calls": 10331,
+        "pairwise_capped_calls": 9262,
+        "pairwise_capped_passage_tokens_estimated": 3260791.25,
+        "pairwise_passage_tokens_estimated": 3563289.75,
+        "window_passage_tokens_estimated": {
+          "max": 1301.0,
+          "min": 11.25,
+          "p50": 219.0,
+          "p90": 456.80000000000007
+        }
+      },
+      "document": {
+        "candidate_pairs": 55959,
+        "joint_calls": 94,
+        "joint_passage_tokens_estimated": 813414.25,
+        "pairs_per_window": {
+          "max": 13230,
+          "min": 2,
+          "p50": 255.5,
+          "p90": 1057.4
+        },
+        "pairwise_calls": 55959,
+        "pairwise_capped_calls": 55959,
+        "pairwise_capped_passage_tokens_estimated": 909413244.5,
+        "pairwise_passage_tokens_estimated": 909413244.5,
+        "window_passage_tokens_estimated": {
+          "max": 38320.25,
+          "min": 476.5,
+          "p50": 8537.25,
+          "p90": 13524.250000000002
+        }
+      },
+      "section": {
+        "candidate_pairs": 18379,
+        "joint_calls": 600,
+        "joint_passage_tokens_estimated": 501594.75,
+        "pairs_per_window": {
+          "max": 1320,
+          "min": 1,
+          "p50": 10.0,
+          "p90": 90.20000000000005
+        },
+        "pairwise_calls": 22607,
+        "pairwise_capped_calls": 21944,
+        "pairwise_capped_passage_tokens_estimated": 36938869.0,
+        "pairwise_passage_tokens_estimated": 37728512.25,
+        "window_passage_tokens_estimated": {
+          "max": 5578.5,
+          "min": 15.25,
+          "p50": 647.875,
+          "p90": 1799.575
+        }
+      },
+      "sentence": {
+        "candidate_pairs": 2639,
+        "joint_calls": 1686,
+        "joint_passage_tokens_estimated": 88749.5,
+        "pairs_per_window": {
+          "max": 78,
+          "min": 1,
+          "p50": 2.0,
+          "p90": 5.0
+        },
+        "pairwise_calls": 4381,
+        "pairwise_capped_calls": 3559,
+        "pairwise_capped_passage_tokens_estimated": 247913.0,
+        "pairwise_passage_tokens_estimated": 291318.75,
+        "window_passage_tokens_estimated": {
+          "max": 269.75,
+          "min": 9.5,
+          "p50": 47.75,
+          "p90": 83.75
+        }
+      }
+    },
+    "pairs_per_paper": {
+      "max": 13230,
+      "min": 0,
+      "p50": 202.0,
+      "p90": 1056.2
+    },
+    "paper_passage_tokens_estimated": {
+      "max": 38320.25,
+      "min": 476.5,
+      "p50": 8537.25,
+      "p90": 13311.250000000004
+    },
+    "papers": 100,
+    "papers_without_pairs": 6
+  },
+  "window_cap_per_pair": 3
+}

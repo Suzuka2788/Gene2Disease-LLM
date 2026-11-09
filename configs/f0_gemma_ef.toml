@@ -1,0 +1,47 @@
+# F0 at EF settings on the same 39 windows: a fresh-call repeat and cache-off timing. Start the server first:
+#   scripts/serve_local.ps1 -Model gemma-4-12b
+[run]
+stage = "f0"
+output = "results/f0_gemma_ef.json"
+runs_dir = "runs"
+hashed_inputs = { biotriplex_release = "../../archive_v1/experiments/biotriplex/data/splits.json", biored_dev = "../../archive_v1/experiments/biored/data/BioRED/Dev.BioC.JSON" }
+
+[f0]
+run_id = "f0_gemma_ef"
+model_id = "gemma-4-12b"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+timeout_seconds = 900
+level = "block"
+load_bands = [1, 4, 15, 40]
+windows_per_stratum = 2
+seed = 20261107
+output_base_tokens = 400
+output_tokens_per_pair = 100
+workload_results = "results/workload.json"
+project_workloads = ["biored_development_gold_entities", "biotriplex_development_gold_entities", "task_papers_pubtator_entities"]
+report_precision_for = ["biored_dev"]
+
+[[f0.datasets]]
+name = "biored_dev"
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[[f0.datasets]]
+name = "biotriplex_train"
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+
+# EF settings: JSON, thinking off, prompt cache off (D14-D16).
+[[f0.conditions]]
+name = "ef_pairwise"
+form = "pairwise"
+cache_prompt = false
+
+[[f0.conditions]]
+name = "ef_joint"
+form = "joint"
+cache_prompt = false

@@ -1,0 +1,38 @@
+{
+  "backend_attempts": 133,
+  "backend_seconds": 1250.2677949001372,
+  "blocked_calls": 0,
+  "cache_hits": 0,
+  "context_refused_calls": 0,
+  "dataset": "biored",
+  "dispositions": {
+    "edge": 484,
+    "failed": 8,
+    "negative_only": 67,
+    "no_assertion": 678,
+    "not_assessed_no_cooccurrence": 24,
+    "omitted_by_model": 2
+  },
+  "failed_calls": 2,
+  "form": "joint",
+  "level": "block",
+  "logical_requests": 133,
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "code_sha256": "474b69113bb3479ced7b2b8a4015c01133917797a2fd3035eeb4ec87d3dec13e",
+    "config": "e4_biored_qwen_joint.toml",
+    "config_sha256": "8a5a2d98dbac44e6b39f03dda94e03135a998f78284ce5d413c603c57d751b0c",
+    "freeze_manifest": "configs/e4/frozen_manifest.json",
+    "freeze_manifest_sha256": "416b7809a3ec453f6d155df5dd4f2d459681f56b71c91df9eed59275bec54a05",
+    "inputs_sha256": {},
+    "python": "3.13.7",
+    "stage": "judge"
+  },
+  "model_id": "qwen3.5-9b",
+  "papers": 100,
+  "prompt_characters": 427079,
+  "rejected_assertions": 0,
+  "response_characters": 221716,
+  "run_id": "e4_biored_qwen_joint",
+  "truncated_calls": 0
+}

@@ -1,0 +1,27 @@
+# Not run yet. Exploratory minimal instruction vs BioRED-guideline rules (TWO_WEEK_PLAN.md):
+# identical to the JSON pairwise run except instructions = "biored_guideline".
+# Start the server first: scripts/serve_local.ps1 -Model gemma-4-12b
+[run]
+stage = "judge"
+output = "results/ef_dev_biored_gemma_pairwise_guideline.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[judge]
+run_id = "ef_dev_biored_gemma_pairwise_guideline"
+form = "pairwise"
+level = "block"
+base_url = "http://127.0.0.1:8081"
+api_key_file = "%LOCALAPPDATA%/gene2disease/api_key.txt"
+model_id = "gemma-4-12b"
+timeout_seconds = 900
+output_format = "json"
+thinking = false
+cache_prompt = false
+instructions = "biored_guideline"
+output_base_tokens = 1000
+output_tokens_per_pair = 150

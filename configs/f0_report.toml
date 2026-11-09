@@ -1,0 +1,100 @@
+# F0 report: matched comparisons on common windows, and the plan-wide runtime gate
+# (plan section 11, F0: weighted by the section 15 call counts, plus 20% for
+# development reruns, at most 72 GPU hours over both models).
+[run]
+stage = "f0_report"
+output = "results/f0_report.json"
+runs_dir = "runs"
+
+# The thinking-on condition was stopped after 8 calls (7 truncated even with 4096 extra
+# tokens, about 79 s per call); see results/f0_qwen_thinking_partial.json.
+[f0_report]
+report_precision_for = ["biored_dev"]
+margin = 0.2
+gate_hours = 72
+# Plan section 15 excludes these from its call counts, so the gate does not cost them.
+not_costed = ["S1 long-paper stress test", "chunked secondary arm (EF)",
+              "E6 sentence-window ablation", "D14 format sensitivity analysis",
+              "development reruns beyond the 20% margin"]
+
+# Run with every model. Multipliers follow plan section 15: BioRED Test is counted as
+# Dev; BioTriplex val+test as 30/70 of train; the exhaustive set as 10% of the 100
+# task papers. Conditions are the EF settings (JSON, thinking off, prompt cache off),
+# measured in the f0_<model>_ef runs on the same 39 windows.
+[[f0_report.plan]]
+item = "BioRED Dev + Test, pairwise"
+condition = "ef_pairwise"
+workload = "biored_development_gold_entities"
+multiplier = 2.0
+
+[[f0_report.plan]]
+item = "BioRED Dev + Test, joint"
+condition = "ef_joint"
+workload = "biored_development_gold_entities"
+multiplier = 2.0
+
+[[f0_report.plan]]
+item = "BioTriplex train + val + test, pairwise"
+condition = "ef_pairwise"
+workload = "biotriplex_development_gold_entities"
+multiplier = 1.4286
+
+[[f0_report.plan]]
+item = "BioTriplex train + val + test, joint"
+condition = "ef_joint"
+workload = "biotriplex_development_gold_entities"
+multiplier = 1.4286
+
+[[f0_report.plan]]
+item = "Exhaustive set (10% of task papers), pairwise"
+condition = "ef_pairwise"
+workload = "task_papers_pubtator_entities"
+multiplier = 0.1
+
+[[f0_report.plan]]
+item = "Exhaustive set (10% of task papers), joint"
+condition = "ef_joint"
+workload = "task_papers_pubtator_entities"
+multiplier = 0.1
+
+# The 100-paper main run happens once, with whichever model is chosen; until then it is
+# charged at the slower model's pairwise projection.
+[[f0_report.once_plan]]
+item = "100 task papers, pairwise (worst case)"
+condition = "ef_pairwise"
+workload = "task_papers_pubtator_entities"
+multiplier = 1.0
+
+[[f0_report.models]]
+name = "qwen3.5-9b"
+results = ["results/f0_qwen.json", "results/f0_qwen_ef.json"]
+# [first, second, run] within one run; [run, first, other run, second] across runs.
+comparisons = [
+  ["json_joint", "lines_joint", "f0_qwen"],
+  ["json_pairwise", "lines_pairwise_subset", "f0_qwen"],
+  ["json_pairwise", "json_chunked5", "f0_qwen"],
+  ["json_chunked5", "json_joint", "f0_qwen"],
+  ["ef_pairwise", "ef_joint", "f0_qwen_ef"],
+  ["f0_qwen", "json_pairwise", "f0_qwen_ef", "ef_pairwise"],
+  ["f0_qwen", "json_joint", "f0_qwen_ef", "ef_joint"],
+  ["f0_qwen", "json_pairwise_subset_cold", "f0_qwen_ef", "ef_pairwise"],
+]
+# The timing model fitted at EF settings, checked on an independent random sample.
+validations = [
+  ["ef_pairwise", "f0_qwen_val", "ef_pairwise"],
+  ["ef_joint", "f0_qwen_val", "ef_joint"],
+]
+
+[[f0_report.models]]
+name = "gemma-4-12b"
+results = ["results/f0_gemma.json", "results/f0_gemma_ef.json"]
+comparisons = [
+  ["json_joint", "lines_joint", "f0_gemma"],
+  ["ef_pairwise", "ef_joint", "f0_gemma_ef"],
+  ["f0_gemma", "json_pairwise", "f0_gemma_ef", "ef_pairwise"],
+  ["f0_gemma", "json_joint", "f0_gemma_ef", "ef_joint"],
+]
+validations = [
+  ["ef_pairwise", "f0_gemma_val", "ef_pairwise"],
+  ["ef_joint", "f0_gemma_val", "ef_joint"],
+]

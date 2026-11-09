@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gene2Disease-LLM</title>
+<meta name="description" content="How request design, input scope, and evaluation choices change LLM judgments of gene–disease relations.">
+<style>
+:root{--surface:#fcfcfb;--panel:#ffffff;--ink:#0b0b0b;--ink2:#52514e;--grid:#e1e0d9;--ring:rgba(11,11,11,.10);
+--c1:#2a78d6;--c2:#eb6834;--c3:#1baf7a;--good:#0f7a52;--on:#ffffff;--bar:rgba(252,252,251,.88)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--surface:#1a1a19;--panel:#222220;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--ring:rgba(255,255,255,.10);--c1:#3987e5;--c2:#d95926;--c3:#199e70;--good:#4cc89a;--bar:rgba(26,26,25,.88)}}
+:root[data-theme="dark"]{--surface:#1a1a19;--panel:#222220;--ink:#f0efec;--ink2:#c3c2b7;--grid:#2c2c2a;--ring:rgba(255,255,255,.10);--c1:#3987e5;--c2:#d95926;--c3:#199e70;--good:#4cc89a;--bar:rgba(26,26,25,.88)}
+html.zh [data-l="en"],html:not(.zh) [data-l="zh"]{display:none!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--ink);font:15px/1.6 "Segoe UI","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:0 16px 64px}
+nav.top{position:sticky;top:0;z-index:20;background:var(--bar);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--grid)}
+nav.top .bar{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:14px;height:52px}
+nav.top .brand{font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:15px}
+nav.top .links-row{flex:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;mask-image:linear-gradient(90deg,#000 92%,transparent)}
+nav.top .links-row::-webkit-scrollbar{display:none}
+nav.top .links-row a{color:var(--ink2);text-decoration:none;font-size:13.5px;white-space:nowrap;padding:6px 10px;border-radius:999px}
+nav.top .links-row a:hover{color:var(--ink);background:var(--grid)}
+nav.top .links-row a.active{color:var(--ink);background:var(--grid);font-weight:600}
+#langBtn{font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--ring);background:var(--panel);color:var(--ink);cursor:pointer;white-space:nowrap}
+#langBtn:hover{border-color:var(--c1)}
+header.hero{padding:44px 0 28px;border-bottom:1px solid var(--grid)}
+.hero h1{font-size:38px;line-height:1.15;margin:0 0 10px;letter-spacing:-.01em}
+.hero .tag{font-size:19px;color:var(--ink2);max-width:820px;margin:0 0 14px}
+.hero .by{color:var(--ink2);font-size:14px}
+section{padding:36px 0 8px;scroll-margin-top:64px}
+h2{font-size:24px;margin:0 0 4px}.kicker{color:var(--ink2);margin:0 0 16px;max-width:820px}
+h3{font-size:16px;margin:0 0 6px}
+a{color:var(--c1)}
+.panel{background:var(--panel);border:1px solid var(--ring);border-radius:10px;padding:16px 18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0}
+.tile{background:var(--panel);border:1px solid var(--ring);border-radius:10px;padding:14px 16px}
+.tile .k{color:var(--ink2);font-size:13px}.tile .v{font-size:clamp(20px,2.6vw,26px);line-height:1.25;font-weight:600;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.tile .s{color:var(--ink2);font-size:12px}
+ul{margin:6px 0;padding-left:20px}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--grid);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--ink2);font-weight:600}th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+.note{color:var(--ink2);font-size:13px;margin:10px 0 0}
+.q{font-weight:600;color:var(--c1);font-size:13px;letter-spacing:.02em}
+.ans{margin:6px 0 0}
+.flow{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+.step{flex:1 1 180px;background:var(--panel);border:1px solid var(--ring);border-radius:10px;padding:12px 14px}
+.step .n{display:inline-block;width:22px;height:22px;border-radius:50%;background:var(--c1);color:var(--on);text-align:center;font-size:12px;line-height:22px;font-weight:600;margin-right:6px}
+.bars{display:grid;grid-template-columns:150px 1fr 56px;gap:6px 10px;align-items:center;font-size:13.5px;margin:10px 0}
+.bars .track{height:14px;background:var(--grid);border-radius:4px;overflow:hidden}
+.bars .fill{height:100%;border-radius:4px}
+.bars .val{text-align:right;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--ring);color:var(--ink2);margin-left:6px}
+.good{color:var(--good);font-weight:600}
+footer{max-width:1080px;margin:0 auto;padding:24px 16px 40px;color:var(--ink2);font-size:13px;border-top:1px solid var(--grid)}
+@media (max-width:640px){.hero h1{font-size:30px}.hero .tag{font-size:17px}.bars{grid-template-columns:110px 1fr 48px}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="bar">
+<a class="brand" href="#top">Gene2Disease-LLM</a>
+<div class="links-row">
+<a href="#questions"><span data-l="en">Questions</span><span data-l="zh">研究问题</span></a>
+<a href="#design"><span data-l="en">Design</span><span data-l="zh">设计</span></a>
+<a href="#test"><span data-l="en">Test results</span><span data-l="zh">测试集结果</span></a>
+<a href="#evidence"><span data-l="en">Evidence</span><span data-l="zh">证据核验</span></a>
+<a href="#scope"><span data-l="en">Input scope</span><span data-l="zh">输入范围</span></a>
+<a href="#choices"><span data-l="en">Evaluation choices</span><span data-l="zh">评估选择</span></a>
+<a href="#audit"><span data-l="en">Audit trail</span><span data-l="zh">审计记录</span></a>
+<a href="#limits"><span data-l="en">Limitations</span><span data-l="zh">局限</span></a>
+<a href="#repo"><span data-l="en">Repository</span><span data-l="zh">仓库</span></a>
+</div>
+<button id="langBtn" type="button" aria-label="Switch language">中文</button>
+</div></nav>
+
+<main id="top">
+<header class="hero">
+<h1>Gene2Disease-LLM</h1>
+<p class="tag"><span data-l="en">How request design, input scope, and evaluation choices change what we conclude about LLM judgments of gene–disease relations.</span><span data-l="zh">请求设计、输入范围和评估选择，怎样改变我们对大语言模型判断基因–疾病关系的结论。</span></p>
+<p class="by"><span data-l="en">Zeqian Tong · November 2026 · empirical study with two local models (Qwen3.5-9B, Gemma-4-12B) · manuscript in preparation</span><span data-l="zh">Zeqian Tong · 2026 年 11 月 · 用两个本地模型（Qwen3.5-9B、Gemma-4-12B）做的实证研究 · 稿件准备中</span></p>
+<div class="tiles">
+<div class="tile"><div class="k"><span data-l="en">Pairwise − joint recall, BioRED</span><span data-l="zh">pairwise − joint 召回，BioRED</span></div><div class="v">+0.214 / +0.122</div><div class="s"><span data-l="en">Qwen / Gemma, test set</span><span data-l="zh">Qwen / Gemma，测试集</span></div></div>
+<div class="tile"><div class="k"><span data-l="en">Joint − pairwise precision, BioRED</span><span data-l="zh">joint − pairwise 精确率，BioRED</span></div><div class="v">+0.102 / +0.207</div><div class="s"><span data-l="en">Qwen / Gemma, test set</span><span data-l="zh">Qwen / Gemma，测试集</span></div></div>
+<div class="tile"><div class="k"><span data-l="en">Gold pairs reachable from abstracts</span><span data-l="zh">摘要段落能覆盖的金标配对</span></div><div class="v">73 / 154</div><div class="s"><span data-l="en">BioTriplex val + test</span><span data-l="zh">BioTriplex val + test</span></div></div>
+<div class="tile"><div class="k"><span data-l="en">Pairwise-only extras supported</span><span data-l="zh">pairwise 独有的金标外边获得支持</span></div><div class="v">2 / 18</div><div class="s"><span data-l="en">vs 7 / 16 for joint, BioRED audit</span><span data-l="zh">joint 为 7 / 16，BioRED 核验</span></div></div>
+<div class="tile"><div class="k"><span data-l="en">Prompt tokens / compute saved by joint</span><span data-l="zh">joint 节省的提示 token / 计算时间</span></div><div class="v">81–89% / 25–40%</div><div class="s"><span data-l="en">test set, local single-slot server</span><span data-l="zh">测试集，本地单槽服务器</span></div></div>
+</div>
+</header>
+
+<section id="questions">
+<h2><span data-l="en">Four questions at a glance</span><span data-l="zh">四个问题的回答</span></h2>
+<p class="kicker"><span data-l="en">Prior work compared one-pair and many-pair requests on abstracts, with free triple generation or schema-enforced answers. This study asks whether the trade-offs hold on paragraph-level full-text passages when omissions and format failures are kept and reported.</span><span data-l="zh">已有研究只在摘要上比较过"每次一个配对"和"每次多个配对"，而且用的是自由生成或强制完整回答的协议。本研究问的是：在段落级的全文上、保留并报告遗漏和格式失败时，这些取舍是否依然成立。</span></p>
+<div class="grid2">
+<div class="panel"><div class="q">RQ1 · <span data-l="en">Request form</span><span data-l="zh">请求形式</span></div>
+<p class="ans"><span data-l="en">On BioRED abstracts, pairwise requests had higher recall and joint requests higher precision in both models. On BioTriplex full-text passages the recall difference was inconclusive (0.039, with room for a loss of up to about 0.10).</span><span data-l="zh">BioRED 摘要上，两个模型都是 pairwise 召回更高、joint 精确率更高。BioTriplex 全文段落上，召回差不确定（0.039，最多可能约 0.10）。</span></p></div>
+<div class="panel"><div class="q">RQ2 · <span data-l="en">Input scope</span><span data-l="zh">输入范围</span></div>
+<p class="ans"><span data-l="en">Full text raised recall from 0.42–0.45 to 0.97. Abstract passages mention together only 73 of 154 gold pairs, so expanded coverage enabled most of the gain; this is a property of the input, not an LLM-specific advantage.</span><span data-l="zh">读全文让召回从 0.42–0.45 升到 0.97。摘要段落只覆盖 154 个金标配对中的 73 个，所以增益主要来自覆盖范围；这是输入的性质，不是 LLM 特有的优势。</span></p></div>
+<div class="panel"><div class="q">RQ3 · <span data-l="en">Evaluation choices</span><span data-l="zh">评估选择</span></div>
+<p class="ans"><span data-l="en">The reading of model output and the output format can change which request form looks better: under a line-based format, the Gemma-4-12B pairwise-versus-joint point estimate reversed on development data. A conclusion about request form is a conclusion about a protocol.</span><span data-l="zh">对模型输出的读法和输出格式，会改变"哪种请求形式更好"：换成 lines 格式后，Gemma-4-12B 在开发集上 pairwise 对 joint 的点估计反转了。关于请求形式的结论，其实是关于整个协议的结论。</span></p></div>
+<div class="panel"><div class="q">RQ4 · <span data-l="en">Citations and support</span><span data-l="zh">引用与支持</span></div>
+<p class="ans"><span data-l="en">Every retained citation resolved, and 92–99% of gold-matched BioTriplex predictions cited a sentence that overlaps the gold relation trigger. Still, among passage-supported items the cited sentences did not support the relation in 10.7% (BioRED) and 14.9% (BioTriplex).</span><span data-l="zh">保留的引用全部能解析，BioTriplex 命中金标的预测有 92–99% 引用的句子与金标的关系触发词重叠。但在段落确实支持的条目里，仍有 10.7%（BioRED）和 14.9%（BioTriplex）的引用句本身不支持这个关系。</span></p></div>
+</div>
+<p class="note"><span data-l="en">Volume, agreement with the gold standard, citation validity, and textual support are reported separately throughout; none of them alone establishes factual correctness.</span><span data-l="zh">全文把抽取数量、与金标的一致性、引用有效性和文本支持分开报告；单看其中任何一项，都不能说明事实上的正确性。</span></p>
+</section>
+
+<section id="design">
+<h2><span data-l="en">Design</span><span data-l="zh">设计</span></h2>
+<p class="kicker"><span data-l="en">The three request forms judge the same candidate pairs over the same paragraph-level passages, with the same instruction, JSON output, and output cap. Only the number of pairs per request differs.</span><span data-l="zh">三种请求形式在同样的段落上判断同样的候选配对，指令、JSON 输出格式和输出上限都相同，只有每次请求列出的配对数不同。</span></p>
+<div class="flow">
+<div class="step"><span class="n">1</span><b><span data-l="en">Passages</span><span data-l="zh">段落</span></b><br><span data-l="en">Paragraph-level blocks; given genes and diseases; pairs that co-occur in a passage.</span><span data-l="zh">段落级的块；实体给定；只判断在同一段落里共现的配对。</span></div>
+<div class="step"><span class="n">2</span><b><span data-l="en">Request forms</span><span data-l="zh">请求形式</span></b><br><span data-l="en">Pairwise (1 pair), chunked (≤5), joint (all pairs of the passage).</span><span data-l="zh">pairwise（1 个）、chunked（≤5 个）、joint（段落里全部配对）。</span></div>
+<div class="step"><span class="n">3</span><b><span data-l="en">Validation</span><span data-l="zh">校验</span></b><br><span data-l="en">Every assertion cites sentence IDs of its passage; truncations, parse failures, and omissions count as misses, with no repair.</span><span data-l="zh">每条断言都引用本段落的句子编号；截断、解析失败和遗漏都算没有预测，不修复。</span></div>
+<div class="step"><span class="n">4</span><b><span data-l="en">Scoring</span><span data-l="zh">评分</span></b><br><span data-l="en">Paper-level micro recall (and precision on BioRED); paired bootstrap over papers; δ = 0.05.</span><span data-l="zh">论文层面的 micro 召回（BioRED 加精确率）；按论文的配对 bootstrap；δ = 0.05。</span></div>
+</div>
+<div class="panel">
+<h3><span data-l="en">Development, then one frozen test run</span><span data-l="zh">先开发集，再冻结后测试一次</span></h3>
+<ul>
+<li><span data-l="en">All settings (output cap 1000 + 150 per pair, thinking off, prompt cache off, JSON) were chosen on BioRED Dev and BioTriplex train.</span><span data-l="zh">所有设置（输出上限 1000 + 150×配对数、关闭思考、关闭缓存、JSON）都在 BioRED Dev 和 BioTriplex train 上选定。</span></li>
+<li><span data-l="en">The protocol was frozen on 8 November 2026 and run once on BioRED Test (100 abstracts) and BioTriplex validation and test (30 articles): 12 runs, 8 comparisons.</span><span data-l="zh">协议在 2026 年 11 月 8 日冻结，然后在 BioRED Test（100 篇摘要）和 BioTriplex val+test（30 篇全文）上只跑一次：12 个运行、8 个比较。</span></li>
+<li><span data-l="en">Six primary contrasts (pairwise − joint recall on both corpora and precision on BioRED, per model) use Bonferroni-adjusted 99.17% intervals.</span><span data-l="zh">6 个主要对比（每个模型：两个语料上的 pairwise − joint 召回，加 BioRED 精确率）用 Bonferroni 校正后的 99.17% 区间。</span></li>
+</ul>
+</div>
+</section>
+
+<section id="test">
+<h2><span data-l="en">Frozen test results</span><span data-l="zh">冻结后的测试集结果</span></h2>
+<p class="kicker"><span data-l="en">Primary family: pairwise minus joint, canonical reading, 99.17% intervals. No run had a server failure, a context refusal, or a provider block.</span><span data-l="zh">主要家族：pairwise − joint，规范化读法，99.17% 区间。所有运行都没有服务器故障、上下文拒绝或服务方拦截。</span></p>
+<div class="panel scroll"><table>
+<thead><tr><th><span data-l="en">Corpus</span><span data-l="zh">语料</span></th><th><span data-l="en">Model</span><span data-l="zh">模型</span></th><th><span data-l="en">Metric</span><span data-l="zh">指标</span></th><th class="num">Pairwise / joint</th><th class="num"><span data-l="en">Difference [99.17%]</span><span data-l="zh">差 [99.17%]</span></th><th><span data-l="en">Reading</span><span data-l="zh">读法</span></th></tr></thead>
+<tbody>
+<tr><td>BioRED Test</td><td>Qwen3.5-9B</td><td><span data-l="en">Recall</span><span data-l="zh">召回</span></td><td class="num">0.881 / 0.668</td><td class="num">+0.214 [+0.100, +0.323]</td><td><span data-l="en">pairwise meaningfully higher</span><span data-l="zh">pairwise 明显更高</span></td></tr>
+<tr><td></td><td></td><td><span data-l="en">Precision</span><span data-l="zh">精确率</span></td><td class="num">0.306 / 0.407</td><td class="num">−0.102 [−0.229, −0.012]</td><td><span data-l="en">joint higher, magnitude unresolved</span><span data-l="zh">joint 更高，幅度不确定</span></td></tr>
+<tr><td></td><td>Gemma-4-12B</td><td><span data-l="en">Recall</span><span data-l="zh">召回</span></td><td class="num">0.908 / 0.786</td><td class="num">+0.122 [+0.030, +0.254]</td><td><span data-l="en">pairwise higher, magnitude unresolved</span><span data-l="zh">pairwise 更高，幅度不确定</span></td></tr>
+<tr><td></td><td></td><td><span data-l="en">Precision</span><span data-l="zh">精确率</span></td><td class="num">0.321 / 0.528</td><td class="num">−0.207 [−0.332, −0.108]</td><td><span data-l="en">joint meaningfully higher</span><span data-l="zh">joint 明显更高</span></td></tr>
+<tr><td>BioTriplex</td><td>Qwen3.5-9B</td><td><span data-l="en">Recall</span><span data-l="zh">召回</span></td><td class="num">0.968 / 0.929</td><td class="num">+0.039 [−0.021, +0.107]</td><td><span data-l="en">inconclusive</span><span data-l="zh">不确定</span></td></tr>
+<tr><td>val + test</td><td>Gemma-4-12B</td><td><span data-l="en">Recall</span><span data-l="zh">召回</span></td><td class="num">0.968 / 0.929</td><td class="num">+0.039 [+0.000, +0.092]</td><td><span data-l="en">inconclusive</span><span data-l="zh">不确定</span></td></tr>
+</tbody></table>
+<p class="note"><span data-l="en">BioRED precision is measured against the corpus annotation; BioTriplex is scored for recall only because its relation annotation is not assumed to be exhaustive. Magnitudes differed between development and test data, so the two models are not ranked.</span><span data-l="zh">BioRED 的精确率按语料标注计算；BioTriplex 不假设标注完整，只报召回。开发集和测试集上的幅度不一致，所以不给两个模型排高低。</span></p>
+</div>
+<div class="grid2" style="margin-top:16px">
+<div class="panel"><h3><span data-l="en">Failures concentrate in large joint requests</span><span data-l="zh">失败集中在大的 joint 请求里</span></h3>
+<p><span data-l="en">Gemma-4-12B joint requests failed in 11 of 133 BioRED calls and 9 of 363 BioTriplex calls, all malformed JSON. Passages with more than 40 candidate pairs held 18.7% of BioRED gold exposures but only 2.45% on BioTriplex; joint requests listed 10.1 pairs on average on BioRED and 4.9 on BioTriplex.</span><span data-l="zh">Gemma-4-12B 的 joint 请求在 BioRED 上 133 次调用失败 11 次，在 BioTriplex 上 363 次失败 9 次，全是 JSON 写坏了。超过 40 个配对的段落在 BioRED 上占金标暴露的 18.7%，在 BioTriplex 上只占 2.45%；joint 请求平均列出的配对数，BioRED 是 10.1，BioTriplex 是 4.9。</span></p></div>
+<div class="panel"><h3><span data-l="en">Tokens are not compute</span><span data-l="zh">省 token 不等于省算力</span></h3>
+<p><span data-l="en">Joint requests cut prompt tokens by 89% (BioRED) and 81% (BioTriplex), but local compute time only by 35–40% and 25–30%. Chunked requests in Qwen3.5-9B were equivalent to pairwise in recall on BioTriplex and had lower recall on BioRED.</span><span data-l="zh">joint 请求让提示 token 减少了 89%（BioRED）和 81%（BioTriplex），本地计算时间却只减少 35–40% 和 25–30%。Qwen3.5-9B 的 chunked 请求在 BioTriplex 上召回和 pairwise 等价，在 BioRED 上召回更低。</span></p></div>
+</div>
+</section>
+
+<section id="evidence">
+<h2><span data-l="en">Evidence assessment</span><span data-l="zh">证据核验</span></h2>
+<p class="kicker"><span data-l="en">One annotator (the author) judged 76 sampled edges with the model, request form, and stratum hidden: first whether the displayed passage supports the relation, then, after locking those labels, whether each set of cited sentences does. Criteria follow the BioRED annotation guideline.</span><span data-l="zh">一名标注者（作者本人）在看不到模型、请求形式和分层的情况下，判断 76 条抽样的边：先判断展示的段落是否支持这个关系，锁定这些答案后，再判断每组引用句是否支持。判断口径按 BioRED 标注指南。</span></p>
+<div class="panel scroll"><table>
+<thead><tr><th><span data-l="en">Corpus</span><span data-l="zh">语料</span></th><th><span data-l="en">Stratum</span><span data-l="zh">分层</span></th><th class="num">N</th><th class="num">n</th><th class="num"><span data-l="en">Supported</span><span data-l="zh">支持</span></th><th class="num"><span data-l="en">Proportion [95%]</span><span data-l="zh">比例 [95%]</span></th></tr></thead>
+<tbody>
+<tr><td>BioRED Test</td><td><span data-l="en">S1 · outside gold, pairwise only</span><span data-l="zh">S1 · 金标外，只有 pairwise 报出</span></td><td class="num">326</td><td class="num">18</td><td class="num">2</td><td class="num">0.111 [0.032, 0.321]</td></tr>
+<tr><td></td><td><span data-l="en">S2 · outside gold, joint</span><span data-l="zh">S2 · 金标外，joint 报出</span></td><td class="num">380</td><td class="num">16</td><td class="num">7</td><td class="num">0.438 [0.234, 0.664]</td></tr>
+<tr><td></td><td><span data-l="en">G · gold-matched</span><span data-l="zh">G · 命中金标</span></td><td class="num">280</td><td class="num">6</td><td class="num">5</td><td class="num">0.833 [0.440, 0.970]</td></tr>
+<tr><td></td><td>S1 − S2</td><td></td><td></td><td></td><td class="num">−0.326 [−0.567, −0.034]</td></tr>
+<tr><td>BioTriplex test</td><td>S1</td><td class="num">82</td><td class="num">16</td><td class="num">11</td><td class="num">0.688 [0.467, 0.847]</td></tr>
+<tr><td></td><td>S2</td><td class="num">186</td><td class="num">14</td><td class="num">7</td><td class="num">0.500 [0.275, 0.725]</td></tr>
+<tr><td></td><td>G</td><td class="num">83</td><td class="num">6</td><td class="num">5</td><td class="num">0.833 [0.448, 0.969]</td></tr>
+<tr><td></td><td>S1 − S2</td><td></td><td></td><td></td><td class="num">+0.188 [−0.128, +0.464]</td></tr>
+</tbody></table>
+<p class="note"><span data-l="en">On BioRED, the 16 unsupported S1 items were co-mentions (11), genes reported only as prognostic factors (3), and relations only to a symptom (2). On BioTriplex, predictions outside the gold set were often supported, consistent with an incomplete gold standard. The assessment measures support in one displayed passage under BioRED criteria; it is not a measure of factual correctness, and it has one annotator who knows the hypotheses.</span><span data-l="zh">BioRED 上 S1 的 16 条不支持：只是共现 11 条，只作预后因子 3 条，只与症状有关 2 条。BioTriplex 上金标外的边常常得到支持，这和金标不完整相符。这项核验测的是一个展示段落里、按 BioRED 口径的支持，不是事实正确性；而且只有一名知道研究假设的标注者。</span></p>
+</div>
+</section>
+
+<section id="scope">
+<h2><span data-l="en">Input scope</span><span data-l="zh">输入范围</span></h2>
+<p class="kicker"><span data-l="en">Same 30 BioTriplex articles, same entities, same gold pairs, pairwise requests; only the passages the model reads change.</span><span data-l="zh">同样的 30 篇 BioTriplex 论文、同样的实体和金标配对、同样用 pairwise 请求，只改变模型读的段落。</span></p>
+<div class="panel">
+<div class="bars">
+<span><span data-l="en">Abstract ceiling</span><span data-l="zh">摘要的上限</span></span><div class="track"><div class="fill" style="width:47.4%;background:var(--grid);border:1px dashed var(--ink2)"></div></div><span class="val">0.474</span>
+<span>Qwen · <span data-l="en">abstract</span><span data-l="zh">摘要</span></span><div class="track"><div class="fill" style="width:42.2%;background:var(--c2)"></div></div><span class="val">0.422</span>
+<span>Gemma · <span data-l="en">abstract</span><span data-l="zh">摘要</span></span><div class="track"><div class="fill" style="width:44.8%;background:var(--c2)"></div></div><span class="val">0.448</span>
+<span>Qwen · <span data-l="en">full text</span><span data-l="zh">全文</span></span><div class="track"><div class="fill" style="width:96.8%;background:var(--c1)"></div></div><span class="val">0.968</span>
+<span>Gemma · <span data-l="en">full text</span><span data-l="zh">全文</span></span><div class="track"><div class="fill" style="width:96.8%;background:var(--c1)"></div></div><span class="val">0.968</span>
+</div>
+<p class="note"><span data-l="en">Recall on BioTriplex validation and test. Abstract passages cover 73 of 154 gold pairs; the full-text runs recovered 149. Any extractor limited to abstracts and the same co-occurrence rule faces the same ceiling.</span><span data-l="zh">BioTriplex val+test 上的召回。摘要段落覆盖 154 个金标配对中的 73 个，全文运行找回了 149 个。任何只读摘要、用同样共现规则的抽取器，都受同一个上限约束。</span></p>
+</div>
+</section>
+
+<section id="choices">
+<h2><span data-l="en">Evaluation choices</span><span data-l="zh">评估选择</span></h2>
+<div class="grid2">
+<div class="panel"><h3><span data-l="en">Reading the output</span><span data-l="zh">输出的读法</span></h3>
+<p><span data-l="en">The canonical reading accepts predefined equivalent spellings (bracketed sentence IDs, entity aliases); the strict reading does not. The readings agreed on all six primary test contrasts but changed one secondary test classification and two development classifications.</span><span data-l="zh">规范化读法接受预先规定的等价写法（带方括号的句子编号、实体别名），严格读法不接受。两种读法在 6 个主要测试对比上结论一致，但改变了 1 个次要测试比较和 2 个开发集比较的分类。</span></p></div>
+<div class="panel"><h3><span data-l="en">Output format (exploratory)</span><span data-l="zh">输出格式（探索性）</span></h3>
+<p><span data-l="en">With an untuned line-based format on development data, Gemma-4-12B joint failed calls fell from 24 to 1, yet many more assertions were rejected and recall dropped; the pairwise − joint point estimate reversed. These are single development runs, not an interaction test.</span><span data-l="zh">在开发集上换成未调过的 lines 格式后，Gemma-4-12B joint 的失败调用从 24 次降到 1 次，但被拒收的断言大幅增加，召回下降，pairwise − joint 的点估计也反转了。这只是开发集上的单次运行，不是交互作用检验。</span></p></div>
+<div class="panel"><h3><span data-l="en">Guideline rules (exploratory)</span><span data-l="zh">指南规则（探索性）</span></h3>
+<p><span data-l="en">Adding nine relation rules from the BioRED annotation guideline to a minimal instruction kept recall, precision, and F1 within δ in both models on development data, at about 35% more prompt tokens in Qwen3.5-9B.</span><span data-l="zh">在最简指令上加入 BioRED 标注指南里的 9 条关系规则，两个模型在开发集上的召回、精确率和 F1 都在 δ 之内，但 Qwen3.5-9B 的提示 token 多了约 35%。</span></p></div>
+<div class="panel"><h3><span data-l="en">Failure accounting</span><span data-l="zh">失败的统计口径</span></h3>
+<p><span data-l="en">Failed and omitted judgments count as misses in every primary result. Every run, including the exploratory ones, is listed with its failed calls, truncations, rejected assertions, and omitted pairs.</span><span data-l="zh">失败和遗漏的判断在所有主要结果里都算没有预测。每个运行（包括探索性的）都列出了失败调用、截断、被拒收的断言和遗漏的配对。</span></p></div>
+</div>
+</section>
+
+<section id="audit">
+<h2><span data-l="en">Audit trail</span><span data-l="zh">审计记录</span></h2>
+<div class="panel">
+<ul>
+<li><span data-l="en">Test splits can only be read through a frozen manifest committed before any test run; it records digests of the code, configurations, data files, weights, and execution scripts, and each test run is journaled.</span><span data-l="zh">测试集只能通过冻结清单读取，清单在任何测试运行之前提交；它记录了代码、配置、数据文件、模型权重和执行脚本的哈希，每次测试运行都写日志。</span></li>
+<li><span data-l="en">An append-only provenance note records the freeze, the launch checks, and when results were first opened.</span><span data-l="zh">一份只追加的审计记录写明了冻结、启动检查，以及结果第一次被打开的时间。</span></li>
+<li><span data-l="en">The evidence assessment followed a written protocol whose dated revision log lists every deviation: first-phase labels reviewed before locking with self-reported times, and estimation code written after labeling (alternatives reported).</span><span data-l="zh">证据核验按书面协议进行，协议的修订记录逐条写明了每一处偏差：第一阶段答案在锁定前回看过、用时为自报，估计代码在标注之后才写（同时报告了替代做法）。</span></li>
+<li><span data-l="en">This public repository starts from a clean history; the freeze (commit 5ac1447) was made in the private development repository.</span><span data-l="zh">这个公开仓库是从干净的历史开始的；冻结（提交 5ac1447）是在私有的开发仓库里做的。</span></li>
+</ul>
+</div>
+</section>
+
+<section id="limits">
+<h2><span data-l="en">Limitations</span><span data-l="zh">局限</span></h2>
+<div class="panel"><ul>
+<li><span data-l="en">Two local 9–12B models; one run per condition; intervals cover document sampling, not run-to-run variation.</span><span data-l="zh">只有两个 9–12B 的本地模型；每个条件只跑一次；区间只反映论文抽样，不包括运行之间的差异。</span></li>
+<li><span data-l="en">Entities are given and candidate pairs are limited to passage co-occurrence; 13 BioRED Test gold pairs fall outside this rule.</span><span data-l="zh">实体是给定的，候选配对限于段落内共现；BioRED Test 有 13 个金标配对不满足这个规则。</span></li>
+<li><span data-l="en">BioTriplex: 30 articles, recall only.</span><span data-l="zh">BioTriplex 只有 30 篇，只报召回。</span></li>
+<li><span data-l="en">Both public test splits were used in earlier work on this project; the protocol was frozen before the test runs of this study.</span><span data-l="zh">两个公开测试集在本项目以前的工作里用过；本研究的协议在测试运行之前冻结。</span></li>
+<li><span data-l="en">One hypothesis-informed annotator, small strata, passage-level support.</span><span data-l="zh">只有一名知道研究假设的标注者，各层样本小，判断的是段落层面的支持。</span></li>
+</ul></div>
+</section>
+
+<section id="repo">
+<h2><span data-l="en">Repository and documents</span><span data-l="zh">仓库和文档</span></h2>
+<div class="grid2">
+<div class="panel"><h3><span data-l="en">Code and data</span><span data-l="zh">代码和数据</span></h3><ul>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM">github.com/Suzuka2788/Gene2Disease-LLM</a></li>
+<li><span data-l="en">Pipeline, tests, configurations, aggregate results; standard-library Python.</span><span data-l="zh">流程代码、测试、配置和汇总结果；只用 Python 标准库。</span></li>
+<li><span data-l="en">Not included: manuscript (in preparation), corpus texts, gold annotations, per-paper outputs, annotation sheets.</span><span data-l="zh">不包括：稿件（准备中）、语料原文、金标、逐篇输出、标注表。</span></li>
+</ul></div>
+<div class="panel"><h3><span data-l="en">Results documents (Chinese)</span><span data-l="zh">结果文档（中文）</span></h3><ul>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM/blob/main/E4_RESULTS.md">E4_RESULTS.md</a> · <span data-l="en">frozen test evaluation</span><span data-l="zh">冻结后的测试集评测</span></li>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM/blob/main/EVIDENCE_RESULTS.md">EVIDENCE_RESULTS.md</a> · <span data-l="en">evidence assessment</span><span data-l="zh">证据核验</span></li>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM/blob/main/EF_DEV_RESULTS.md">EF_DEV_RESULTS.md</a> · <span data-l="en">development results</span><span data-l="zh">开发集结果</span></li>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM/blob/main/E4_PROVENANCE.md">E4_PROVENANCE.md</a> · <span data-l="en">audit record</span><span data-l="zh">审计记录</span></li>
+<li><a href="https://github.com/Suzuka2788/Gene2Disease-LLM/blob/main/annotation/EVIDENCE_PROTOCOL.md">EVIDENCE_PROTOCOL.md</a> · <span data-l="en">assessment protocol</span><span data-l="zh">核验协议</span></li>
+</ul></div>
+</div>
+</section>
+</main>
+
+<footer>
+<span data-l="en">Successor to <a href="https://github.com/Suzuka2788/GeneDiseaseTrace-LLM">GeneDiseaseTrace-LLM</a>; no earlier numerical results are reused. Corpora: BioRED (Luo et al., 2022) and BioTriplex (Collins et al., 2026), used under their own terms. Models: Qwen3.5-9B (Qwen Team) and Gemma-4-12B (Gemma Team), run locally with llama.cpp.</span>
+<span data-l="zh">本项目接续 <a href="https://github.com/Suzuka2788/GeneDiseaseTrace-LLM">GeneDiseaseTrace-LLM</a>，但没有沿用任何旧的数字结果。语料：BioRED（Luo 等，2022）和 BioTriplex（Collins 等，2026），按各自的条款使用。模型：Qwen3.5-9B（Qwen 团队）和 Gemma-4-12B（Gemma 团队），用 llama.cpp 在本地运行。</span>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('langBtn');
+  function apply(zh){root.classList.toggle('zh',zh);root.lang=zh?'zh':'en';btn.textContent=zh?'English':'中文';}
+  var saved=null; try{saved=localStorage.getItem('g2d-lang');}catch(e){}
+  apply(saved?saved==='zh':(navigator.language||'').toLowerCase().indexOf('zh')===0);
+  btn.addEventListener('click',function(){var zh=!root.classList.contains('zh');apply(zh);try{localStorage.setItem('g2d-lang',zh?'zh':'en');}catch(e){}});
+  var links=[].slice.call(document.querySelectorAll('nav.top .links-row a'));
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id);});}});},{rootMargin:'-40% 0px -55% 0px'});
+  document.querySelectorAll('main section[id]').forEach(function(s){obs.observe(s);});
+})();
+</script>
+</body>
+</html>

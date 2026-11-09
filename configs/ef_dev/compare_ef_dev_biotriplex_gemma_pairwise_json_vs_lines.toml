@@ -1,0 +1,24 @@
+# Not run yet. D14 analysis 3 (EF_FORMAT_SENSITIVITY.md): pairwise, JSON (first) vs lines (second).
+[run]
+stage = "compare"
+output = "results/compare_ef_dev_biotriplex_gemma_pairwise_json_vs_lines.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biotriplex"
+release = "../../archive_v1/experiments/biotriplex/data/splits.json"
+splits = ["train"]
+
+[stats]
+n_resamples = 10000
+seed = 20261107
+level = 0.95
+
+[compare]
+first = "ef_dev_biotriplex_gemma_pairwise"
+second = "ef_dev_biotriplex_gemma_pairwise_lines"
+view = "main"
+delta = 0.05
+report_precision = false
+load_bands = [1, 4, 15, 40]
+allow_differing = ["output_format"]

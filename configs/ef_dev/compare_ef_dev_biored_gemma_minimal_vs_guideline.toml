@@ -1,0 +1,27 @@
+# Not run yet. Exploratory: minimal instruction (first) vs BioRED-guideline rules (second), pairwise, BioRED Dev.
+# Precision is against BioRED's relation definition (RESEARCH_PLAN.md section 4).
+[run]
+stage = "compare"
+output = "results/compare_ef_dev_biored_gemma_minimal_vs_guideline.json"
+runs_dir = "runs"
+
+[data]
+dataset = "biored"
+folder = "../../archive_v1/experiments/biored/data/BioRED"
+splits = ["Dev"]
+
+[stats]
+n_resamples = 10000
+seed = 20261107
+level = 0.95
+
+[compare]
+first = "ef_dev_biored_gemma_pairwise"
+second = "ef_dev_biored_gemma_pairwise_guideline"
+view = "main"
+delta = 0.05
+# BioRED precision and F1 are reported but not interpreted until annotation
+# exhaustiveness is confirmed (plan section 5).
+report_precision = true
+load_bands = [1, 4, 15, 40]
+allow_differing = ["instructions"]

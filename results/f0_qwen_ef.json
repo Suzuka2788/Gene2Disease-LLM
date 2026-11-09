@@ -1,0 +1,245 @@
+{
+  "conditions": [
+    {
+      "answered_pair_rate": 0.9941724941724942,
+      "budget_share_used": {
+        "max": 1.0,
+        "min": 0.052,
+        "p50": 0.164,
+        "p90": 0.264
+      },
+      "cache_hits_this_run": 0,
+      "cache_prompt": false,
+      "cached_prompt_tokens": 0,
+      "calls": 858,
+      "calls_over_80_percent_of_budget": 7,
+      "completion_tokens": 68522,
+      "completion_tokens_per_call": {
+        "max": 500,
+        "min": 26,
+        "p50": 82,
+        "p90": 132
+      },
+      "completion_tokens_per_listed_pair": 79.86247086247086,
+      "condition": "ef_pairwise",
+      "evaluated_prompt_tokens": 843613,
+      "form": "pairwise",
+      "generation_tokens_per_second": 72.4925107964033,
+      "measured_calls": 858,
+      "outcomes": {
+        "ok": 853,
+        "truncated": 5
+      },
+      "pairs_listed": 858,
+      "parsed_call_rate": 0.9941724941724942,
+      "peak_total_gpu_memory_mib_including_desktop": 10255,
+      "projected_hours_block": {
+        "biored_development_gold_entities": {
+          "calls": 1293,
+          "hours": 0.4897062703912122
+        },
+        "biotriplex_development_gold_entities": {
+          "calls": 4591,
+          "hours": 1.742288806768096
+        },
+        "task_papers_pubtator_entities": {
+          "calls": 10331,
+          "hours": 3.9306915556786057
+        }
+      },
+      "prompt_tokens": 843613,
+      "prompt_tokens_per_second": 4024.6501346739005,
+      "quality": {
+        "biored_dev": {
+          "edges_matching_document_gold": 0.3448275862068966,
+          "gold_found": 70,
+          "gold_pairs": 74,
+          "pairs_edge": 203,
+          "pairs_failed": 1,
+          "pairs_negative_only": 8,
+          "pairs_no_assertion": 80,
+          "predicted_edges": 203,
+          "predicted_edges_in_gold": 70,
+          "recall_of_cooccurring_document_gold": 0.9459459459459459,
+          "strict_gold_found": 70,
+          "strict_predicted_edges": 201,
+          "strict_recall_of_cooccurring_document_gold": 0.9459459459459459,
+          "windows": 17
+        },
+        "biotriplex_train": {
+          "gold_found": 95,
+          "gold_pairs": 104,
+          "pairs_edge": 242,
+          "pairs_failed": 4,
+          "pairs_negative_only": 1,
+          "pairs_no_assertion": 319,
+          "predicted_edges": 242,
+          "predicted_edges_in_gold": 95,
+          "recall_of_cooccurring_document_gold": 0.9134615384615384,
+          "strict_gold_found": 83,
+          "strict_predicted_edges": 207,
+          "strict_recall_of_cooccurring_document_gold": 0.7980769230769231,
+          "windows": 22
+        }
+      },
+      "raw_outcomes": {
+        "ok": 853,
+        "truncated": 5
+      },
+      "raw_rejected_assertions": 139,
+      "reasoning_characters": 0,
+      "rejected_assertions": 0,
+      "retried_calls": 0,
+      "seconds_model": {
+        "calls": 858,
+        "intercept": 1.4013965033324478,
+        "per_new_window_characters": -2.2965973752522986e-05,
+        "predicted_over_measured_by_dataset": {
+          "biored_dev": 0.8603976080544278,
+          "biotriplex_train": 1.0912484862425207
+        },
+        "r_squared": 0.0007999344517641838
+      },
+      "wall_seconds": 1165.2180796998582,
+      "windows": 39
+    },
+    {
+      "answered_pair_rate": 0.9009324009324009,
+      "budget_share_used": {
+        "max": 0.952,
+        "min": 0.112,
+        "p50": 0.38,
+        "p90": 0.7484615384615385
+      },
+      "cache_hits_this_run": 0,
+      "cache_prompt": false,
+      "cached_prompt_tokens": 0,
+      "calls": 39,
+      "calls_over_80_percent_of_budget": 4,
+      "completion_tokens": 45866,
+      "completion_tokens_per_call": {
+        "max": 6931,
+        "min": 56,
+        "p50": 615,
+        "p90": 3512
+      },
+      "completion_tokens_per_listed_pair": 53.45687645687646,
+      "condition": "ef_joint",
+      "evaluated_prompt_tokens": 58936,
+      "form": "joint",
+      "generation_tokens_per_second": 69.56591260332749,
+      "measured_calls": 39,
+      "outcomes": {
+        "ok": 38,
+        "parse_failure": 1
+      },
+      "pairs_listed": 858,
+      "parsed_call_rate": 0.9743589743589743,
+      "peak_total_gpu_memory_mib_including_desktop": 10049,
+      "projected_hours_block": {
+        "biored_development_gold_entities": {
+          "calls": 134,
+          "hours": 0.3540911336541126
+        },
+        "biotriplex_development_gold_entities": {
+          "calls": 699,
+          "hours": 1.4643930367279825
+        },
+        "task_papers_pubtator_entities": {
+          "calls": 1140,
+          "hours": 2.8961916320631467
+        }
+      },
+      "prompt_tokens": 58936,
+      "prompt_tokens_per_second": 4289.477737016644,
+      "quality": {
+        "biored_dev": {
+          "edges_matching_document_gold": 0.4740740740740741,
+          "gold_found": 64,
+          "gold_pairs": 74,
+          "pairs_edge": 135,
+          "pairs_failed": 84,
+          "pairs_negative_only": 6,
+          "pairs_no_assertion": 67,
+          "predicted_edges": 135,
+          "predicted_edges_in_gold": 64,
+          "recall_of_cooccurring_document_gold": 0.8648648648648649,
+          "strict_gold_found": 64,
+          "strict_predicted_edges": 135,
+          "strict_recall_of_cooccurring_document_gold": 0.8648648648648649,
+          "windows": 17
+        },
+        "biotriplex_train": {
+          "gold_found": 80,
+          "gold_pairs": 104,
+          "pairs_edge": 159,
+          "pairs_negative_only": 16,
+          "pairs_no_assertion": 390,
+          "pairs_omitted_by_model": 1,
+          "predicted_edges": 159,
+          "predicted_edges_in_gold": 80,
+          "recall_of_cooccurring_document_gold": 0.7692307692307693,
+          "strict_gold_found": 69,
+          "strict_predicted_edges": 127,
+          "strict_recall_of_cooccurring_document_gold": 0.6634615384615384,
+          "windows": 22
+        }
+      },
+      "raw_outcomes": {
+        "ok": 38,
+        "parse_failure": 1
+      },
+      "raw_rejected_assertions": 72,
+      "reasoning_characters": 0,
+      "rejected_assertions": 0,
+      "retried_calls": 0,
+      "seconds_model": {
+        "calls": 39,
+        "intercept": 3.5195569432219247,
+        "per_new_window_characters": -0.00012853198852842975,
+        "per_pairs": 0.6348959334796946,
+        "predicted_over_measured_by_dataset": {
+          "biored_dev": 0.931803147154789,
+          "biotriplex_train": 1.0427319982405605
+        },
+        "r_squared": 0.805401958892163
+      },
+      "wall_seconds": 674.8235063000466,
+      "windows": 39
+    }
+  ],
+  "level": "block",
+  "manifest": {
+    "code_commit": "none: no local repository yet",
+    "config": "f0_qwen_ef.toml",
+    "config_sha256": "5e4b8eb62b9bffbc5e937496879765ec83188f41d14e1a18176273f0ab2e425b",
+    "inputs_sha256": {
+      "biored_dev": "d5ab4d05673ac46fb5e3b2904d2820462dec2c4c50dfcdd8678635ff1b8ce1f5",
+      "biotriplex_release": "97a1d2b29ac8282a4924647421d0c48e476d509babf44e9364f46932a2a575aa"
+    },
+    "python": "3.13.7",
+    "stage": "f0"
+  },
+  "model_id": "qwen3.5-9b",
+  "selected_by_dataset": {
+    "biored_dev": 17,
+    "biotriplex_train": 22
+  },
+  "selected_by_load_band": {
+    "<=1": 8,
+    "<=15": 8,
+    "<=4": 8,
+    "<=40": 7,
+    ">40": 6,
+    "extreme": 2
+  },
+  "selected_pairs": 858,
+  "selected_windows": 39,
+  "server": {
+    "available": true,
+    "build_info": "b12182-fd27b2034",
+    "model_alias": "qwen3.5-9b",
+    "n_ctx": 32768,
+    "total_slots": 1
+  }
+}
